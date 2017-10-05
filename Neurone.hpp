@@ -10,9 +10,9 @@ class Neurone {
 	std::vector<double> SpikesTime_;
 	public:
 	Neurone ();
-	void update(unsigned int const& NumberOfTimeIncrement,double const& ElectricInput,double const& InitialTime);
-	double getMembranePotential const();
-	vector<double> getSpikesTime const();
+	void update(unsigned int const& NumberOfTimeIncrement,double ElectricInput,double InitialTime);
+	double getMembranePotential() const;
+	std::vector<double> getSpikesTime() const;
 };
 
 #endif
