@@ -8,6 +8,7 @@ class Neurone {
 	private:
 	double membranePotential_;
 	std::vector<double> SpikesTime_;
+	double RefractoryClock_;
 	public:
 	Neurone ();
 	void update(unsigned int const& NumberOfTimeIncrement,double ElectricInput,double InitialTime);

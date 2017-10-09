@@ -1,0 +1,40 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
+
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.cpp
+iostream
+-
+Neurone.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
+Constants.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
+cmath
+-
+vector
+-
+
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
+iostream
+-
+vector
+-
+
+/home/INTRANET/dupre/myfiles/infoBA3/S2/main.cpp
+iostream
+-
+Neurone.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
+fstream
+-
+iomanip
+-
+Constants.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
+

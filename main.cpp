@@ -5,17 +5,17 @@
 #include "Constants.hpp"
 using namespace std;
 
-/*void recordValue(Neurone const& n,double time,ofstream& f);
-void AskUserAnIntervalle(double borneInf, double borneSup,double min,double max);
-double AskUserADouble();*/
-
-
+bool isInIntervalle(double ToTest,double Inf,double Sup){
+	bool x(ToTest>=Inf and ToTest<Sup);
+	return x;
+}
 void recordValue(Neurone const& n,double time,ofstream& out)
 {
 	out<<setprecision(3)<<time<<" "<<n.getMembranePotential()<<endl;
 }
 
 double AskUserADouble() {
+	//on pourrait checker que l'entrée soit correcte
 	double result;
 		cin>>result;
 	return result;
@@ -23,30 +23,33 @@ double AskUserADouble() {
 
 void AskUserAnIntervalle(double borneInf, double borneSup,double min,double max)
 {
+	/*
 	do{
 		cout<<"entrez borne inf (entre 0 et Tstop)"<<endl;
 	borneInf=AskUserADouble();
 	} while (borneInf<min or borneInf>max);
 	
 	do{
-		cout<<"entrez borne sup (entre 0 et Tstop)"<<endl;
+		cout<<"entrez borne sup (entre borne sup et Tstop)"<<endl;
 	borneSup=AskUserADouble();
-	} while (borneSup<min or borneSup>max or borneSup<borneInf);
+	} while (borneSup<min or borneSup>max or borneSup<borneInf);*/
 }
 
 
 int main() {
 		Neurone n; //un neurone
 		
-		cout<<"temps de simulation? (s)"<<endl;
+		cout<<"temps de simulation? (ms)"<<endl;
 		double Tstop(AskUserADouble());
 		int TotalNumberOfIncrement = Tstop/TimeIncrement;//calcul du nombre de pas de simulation (pourrait prendre une valeur max)
 		
-		double BorneInfIntervalle;
-		double BorneSupIntervalle;
-		AskUserAnIntervalle(BorneInfIntervalle,BorneSupIntervalle,0.0,Tstop);
+		cout<<"entrez borne inf (entre 0 et Tstop)"<<endl;
+		double BorneInfIntervalle(AskUserADouble());
 		
-		cout<<"Input value? (mA)"<<endl;
+		cout<<"entrez borne sup (entre borne sup et Tstop)"<<endl;
+		double BorneSupIntervalle(AskUserADouble());
+		
+		cout<<"Input value?"<<endl;
 		double Iext(AskUserADouble());
 		
 		ofstream f("values.txt",ios::trunc);//declaration du stream d'ecriture
@@ -54,7 +57,7 @@ int main() {
 		//simulation loop
 		for(unsigned int i(0);i<TotalNumberOfIncrement;++i){
 			recordValue(n,i*TimeIncrement,f);
-			if(i*TimeIncrement>=BorneInfIntervalle and i*TimeIncrement<BorneSupIntervalle){
+			if(isInIntervalle(i*TimeIncrement,BorneInfIntervalle,BorneSupIntervalle)){
 				n.update(1,Iext,0.0);
 			}
 			else {
