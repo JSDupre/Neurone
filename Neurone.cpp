@@ -8,7 +8,7 @@ using namespace std;
 	Neurone::Neurone ()
 	:membranePotential_(STANDART_POTENTIAL),RefractoryClock_(0.0){}
 	
-	void Neurone::update(unsigned int const& NumberOfTimeIncrement,double const& ElectricInput,double const& InitialTime){
+	bool Neurone::update(unsigned int const& NumberOfTimeIncrement,double const& ElectricInput,double const& InitialTime){
 			for(unsigned int i(0);i<NumberOfTimeIncrement;++i){
 				if(membranePotential_>=SpikeThreshold){
 						//1 we store the spike time
@@ -17,6 +17,7 @@ using namespace std;
 						membranePotential_=RefractoryPotential;
 						//the neurone goes refractory
 						RefractoryClock_=RefractoryTime;
+						return true;
 						}
 						
 				else if(RefractoryClock_>0.0){
@@ -29,7 +30,7 @@ using namespace std;
 					NewPotential+=ElectricInput*NeuroneResistance*(1-exp(-TimeIncrement/Tau));
 					membranePotential_=NewPotential;
 					}
-				//return spike state?
+				return false;
 				}
 			
 		}

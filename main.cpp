@@ -3,6 +3,7 @@
 #include <fstream>
 #include <iomanip>
 #include "Constants.hpp"
+#include <vector>
 using namespace std;
 
 bool isInIntervalle(double ToTest,double Inf,double Sup){
@@ -38,6 +39,7 @@ void AskUserAnIntervalle(double borneInf, double borneSup,double min,double max)
 
 int main() {
 		Neurone n; //un neurone
+		vector<Neurone> neurones; //suivi de toutes les etapes d'initialisation necessaire
 		
 		cout<<"temps de simulation? (ms)"<<endl;
 		double Tstop(AskUserADouble());
@@ -65,7 +67,20 @@ int main() {
 			}
 		}
 		
+		double clock(Tstart);
 		//loop for two or more neurone
+		while (clock<Tstop){
+			for(auto& n:neurones){
+				bool spike=n.update(1,I?,0.0);//calcul de I en fonction du nombre de spike des pre neurones?
+				if(spike){
+					for(auto& post:n.getTargets()){
+						(*post).receive(clock+D,J);//J? D?
+					}
+				}
+			}
+			clock+=TimeIncrement;
+		}
+			
 		
 		return 0;
 	}

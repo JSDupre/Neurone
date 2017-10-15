@@ -9,11 +9,15 @@ class Neurone {
 	double membranePotential_;
 	std::vector<double> SpikesTime_;
 	double RefractoryClock_;
+	vector<Neurone*> targets_;// a utiliser
+	double J; //propre à chaque neurone ?
+	
 	public:
 	Neurone ();
-	void update(unsigned int const& NumberOfTimeIncrement,double const& ElectricInput,double const& InitialTime);
+	bool update(unsigned int const& NumberOfTimeIncrement,double const& ElectricInput,double const& InitialTime);
 	double getMembranePotential() const;
 	std::vector<double> getSpikesTime() const;
+	vector<Neurone*> getTargets();// a def
 };
 
 #endif
