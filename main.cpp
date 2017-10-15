@@ -41,7 +41,7 @@ int main() {
 		
 		cout<<"temps de simulation? (ms)"<<endl;
 		double Tstop(AskUserADouble());
-		int TotalNumberOfIncrement = Tstop/TIME_INCREMENT;//calcul du nombre de pas de simulation (pourrait prendre une valeur max)
+		int TotalNumberOfIncrement = Tstop/TimeIncrement;//calcul du nombre de pas de simulation (pourrait prendre une valeur max)
 		
 		cout<<"entrez borne inf (entre 0 et Tstop)"<<endl;
 		double BorneInfIntervalle(AskUserADouble());
@@ -54,15 +54,18 @@ int main() {
 		
 		ofstream f("values.txt",ios::trunc);//declaration du stream d'ecriture
 		
-		//simulation loop
+		//simulation loop for a single neurone
 		for(unsigned int i(0);i<TotalNumberOfIncrement;++i){
-			double ActualTime (i*TIME_INCREMENT);
-			recordValue(n,ActualTime,f);
-			if(isInIntervalle(ActualTime,BorneInfIntervalle,BorneSupIntervalle)){
-				n.update(ActualTime,Iext,ActualTime+TIME_INCREMENT);
+			recordValue(n,i*TimeIncrement,f);
+			if(isInIntervalle(i*TimeIncrement,BorneInfIntervalle,BorneSupIntervalle)){
+				n.update(1,Iext,0.0);
 			}
 			else {
-				n.update(ActualTime,0.0,ActualTime+TIME_INCREMENT);
+				n.update(1,0.0,0.0);
 			}
 		}
+		
+		//loop for two or more neurone
+		
+		return 0;
 	}
