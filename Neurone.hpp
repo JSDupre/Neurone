@@ -9,9 +9,13 @@ class Neurone {
 	double membranePotential_;
 	std::vector<double> SpikesTime_;
 	double RefractoryClock_;
+	bool isRefractory (double time);
+	void setNeuroneRefractory (double time);
+	void solveMembraneEquationAtTPlusH(double const& ElectricInput);
+	
 	public:
 	Neurone ();
-	void update(unsigned int const& NumberOfTimeIncrement,double ElectricInput,double InitialTime);
+	void update(double& time, double const& ElectricInput,double const& Tstop);
 	double getMembranePotential() const;
 	std::vector<double> getSpikesTime() const;
 };
