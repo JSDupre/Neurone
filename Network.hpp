@@ -1,6 +1,9 @@
 #include "Neurone.hpp"
 #include <array>
 
+#ifndef NETWORK_H
+#define NETWORK_H
+
 class Network{
    private: 
       std::vector<Neurone*> neurones_;
@@ -10,3 +13,5 @@ class Network{
       int run(clock,...);
       getNeurones();
  };
+
+#endif
