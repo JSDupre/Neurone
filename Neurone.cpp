@@ -5,32 +5,32 @@
 #include <vector>
 using namespace std;
 
-	Neurone::Neurone ()
-	:membranePotential_(STANDART_POTENTIAL),RefractoryClock_(0.0){}
+	Neurone::Neurone (int clock)
+	:membranePotential_(STANDART_POTENTIAL),localClock_(clock){}
 	
-	bool Neurone::update(unsigned int const& NumberOfTimeIncrement,double const& ElectricInput,double const& InitialTime){
-			for(unsigned int i(0);i<NumberOfTimeIncrement;++i){
-				if(membranePotential_>=SpikeThreshold){
-						//1 we store the spike time
-						SpikesTime_.push_back(InitialTime+(i+1)*TimeIncrement);
-						//2 the potential fall down to 0
-						membranePotential_=RefractoryPotential;
-						//the neurone goes refractory
-						RefractoryClock_=RefractoryTime;
-						return true;
-						}
-						
-				else if(RefractoryClock_>0.0){
+	bool Neurone::update(double const& ElectricInput){
+				bool spike(false);
+				if(membranePotential_>=SpikeThreshold)
+				{
+					//1 we store the spike time
+					SpikesTime_.push_back(localClock_);
+					//2 the neurone goes refractory: the potential fall down to 0
 					membranePotential_=RefractoryPotential;
-					RefractoryClock_-=TimeIncrement;
+					spike=true;
 				}
-				else{
+						
+				else if((localClock_-SpikesTime.back())<=RefractoryTimeInTimeIncrement) //on regarde le temps ecoulé depuis le dernier spike
+				{
+					membranePotential_=RefractoryPotential;
+				}
+				else
+				{
 					double NewPotential;
 					NewPotential=membranePotential_*exp(-TimeIncrement/Tau);
 					NewPotential+=ElectricInput*NeuroneResistance*(1-exp(-TimeIncrement/Tau));
 					membranePotential_=NewPotential;
-					}
-				return false;
+				}
+				return spike;
 				}
 			
 		}
