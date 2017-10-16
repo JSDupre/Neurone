@@ -8,6 +8,7 @@
 	const double RefractoryPotential(0.0);
 	const double NeuroneResistance(Tau/C);
 	const int RefractoryTimeInTimeIncrement(RefractoryTime/TimeIncrement);
+	const int D(5); //delay
 	
 	
 	
