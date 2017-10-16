@@ -11,7 +11,7 @@ class Connection {
     
    public:
     Connection(Neurone* post,double J);
-    Connection(Connection const& c)=delete;
+    //Connection(Connection const& c)=delete;
     ~Connection();
     Neurone* getPost(); //const?
     double getJ() const;

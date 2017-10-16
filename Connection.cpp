@@ -10,3 +10,7 @@
     double Connection::getJ() const{
       return J_;
     }
+	
+	Connection::~Connection(){
+		//postsynapticNeurone_=nullptr;
+	}

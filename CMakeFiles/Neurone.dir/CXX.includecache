@@ -6,6 +6,12 @@
 
 #IncludeRegexTransform: 
 
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Connection.cpp
+Connection.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Connection.hpp
+
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Connection.hpp
+
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
 
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.cpp
@@ -13,11 +19,7 @@ iostream
 -
 Neurone.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
-Constants.hpp
-/home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
 cmath
--
-vector
 -
 
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
@@ -25,6 +27,10 @@ iostream
 -
 vector
 -
+Connection.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Connection.hpp
+Constants.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
 
 /home/INTRANET/dupre/myfiles/infoBA3/S2/main.cpp
 iostream
@@ -35,6 +41,8 @@ fstream
 -
 iomanip
 -
-Constants.hpp
-/home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
+vector
+-
+Connection.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Connection.hpp
 

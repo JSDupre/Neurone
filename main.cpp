@@ -2,8 +2,8 @@
 #include "Neurone.hpp"
 #include <fstream>
 #include <iomanip>
-#include "Constants.hpp"
 #include <vector>
+#include "Connection.hpp"
 using namespace std;
 
 bool isInIntervalle(double ToTest,double Inf,double Sup){
@@ -25,8 +25,9 @@ double AskUserADouble() {
 int main() {
 		cout<<"temps de simulation? (ms)"<<endl;
 		double Tstop(AskUserADouble());
-		int TotalNumberOfIncrement = Tstop/TimeIncrement;//calcul du nombre de pas de simulation (pourrait prendre une valeur max)
+		int TotalNumberOfTimeIncrement = Tstop/TimeIncrement;//calcul du nombre de pas de simulation (pourrait prendre une valeur max)
 		
+		/*
 		cout<<"entrez borne inf (entre 0 et Tstop)"<<endl;
 		double BorneInfIntervalle(AskUserADouble());
 		
@@ -35,7 +36,7 @@ int main() {
 		
 		cout<<"Input value?"<<endl;
 		double Iext(AskUserADouble());
-		
+		*/
 		ofstream f("values.txt",ios::trunc);//declaration du stream d'ecriture
 		/*
 		//simulation loop for a single neurone
@@ -57,7 +58,7 @@ int main() {
 		vector<Neurone> network;
 		network.push_back(n1);
 		network.push_back(n2);
-		Neurone* ptr(n2);
+		Neurone* ptr(&n2);
 		Connection c(ptr,0.01);
 		vector<Connection> co;
 		co.push_back(c);
@@ -68,10 +69,11 @@ int main() {
 				bool spike=n.update(1); //arguments pour neurone::update ?? Iext?
 				if(spike){
 					for(auto& connection:n.getConnections()){
-						(connection.getPost()).receive(clock+D),connection.getJ());
+						(connection.getPost())->receive((clock+D),connection.getJ());
 					}
 				}
 			}
+			recordValue(n1,0.0,f);//record
 			clock+=1;
 		}
 			
