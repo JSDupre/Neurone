@@ -9,7 +9,9 @@ using namespace std;
       
       void Network::BuildNetwork(unsigned int number_of_neurones, double connection_probability){
         for(unsigned int i(0);i<number_of_neurones;++i){
-          new Neurone n(clock)
+          new Neurone n(clock);
+	}
+	      
       
       vector<Neurone> Network::getNeurones(){
       
