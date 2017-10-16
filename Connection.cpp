@@ -1,7 +1,7 @@
 #include "Connection.hpp"
 
 
-    Connection::Connection(Neurone* post,double J,unsigned int D)
+    Connection::Connection(Neurone* post,double J)
     :postsynapticNeurone_(post),J_(J){}
     
     Neurone* Connection::getPost(){
