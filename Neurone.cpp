@@ -5,11 +5,12 @@
 #include <vector>
 using namespace std;
 
-	Neurone::Neurone (int clock)
-	:membranePotential_(STANDART_POTENTIAL),localClock_(clock),spikeRingBuffer_(D+1,0.0){}
+	Neurone::Neurone (int clock,double Iext)
+	:spikeRingBuffer_(D+1,0.0),membranePotential_(STANDART_POTENTIAL),localClock_(clock),Iext_(Iext){}
 	
-	bool Neurone::update(double const& ElectricInput){
-				bool spike(false);
+	bool Neurone::update(unsigned int NumberOfTimeIncrement,double const& ElectricInput){
+		bool spike(false);
+		for(unsigned int i(1);i<=NumberOfTimeIncrement;++i){
 				if(membranePotential_>=SpikeThreshold)
 				{
 					//1 we store the spike time
@@ -32,9 +33,9 @@ using namespace std;
 					membranePotential_=NewPotential;
 				}
 				++localClock_;
-				return spike;
 				}
-			
+			}
+			return spike;
 		}
 	
 	double Neurone::getMembranePotential() const{
