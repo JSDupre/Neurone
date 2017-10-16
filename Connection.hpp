@@ -4,7 +4,6 @@ class Neurone;//predeclaration pour eviter dependance circulaire
 
 class Connection {
   private: 
-    Neurone* presynapticNeurone_;
     Neurone* postsynapticNeurone_;
     double J; //connection strenght
     unsigned int D; //delay in the transmission of the spikes
@@ -12,11 +11,10 @@ class Connection {
    public:
     Connection(Neurone* pre,Neurone* post,double J,unsigned int D)
     Connection(Connection const& c)=delete;
-    ~Connection()
-    getPost
-    getPre
-    getJ
-    getD
+    ~Connection();
+    getPost(); //const?
+    getJ() const;
+    getD() const;
 };
     
    
