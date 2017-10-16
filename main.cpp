@@ -23,9 +23,6 @@ double AskUserADouble() {
 	}
 
 int main() {
-		Network network;
-		network.BuildNetwork(2,1);//pour l'instant 2 neurones connectés
-		
 		cout<<"temps de simulation? (ms)"<<endl;
 		double Tstop(AskUserADouble());
 		int TotalNumberOfIncrement = Tstop/TimeIncrement;//calcul du nombre de pas de simulation (pourrait prendre une valeur max)
@@ -54,9 +51,21 @@ int main() {
 		*/
 		double clock(0);
 		//loop for two or more neurone
+	//test for 2 neurons
+		Neurone n1(clock,1.2);
+		Neurone n2(clock,0.0);
+		vector<Neurone> network;
+		network.push_back(n1);
+		network.push_back(n2);
+		Neurone* ptr(n2);
+		Connection c(ptr,0.01);
+		vector<Connection> co;
+		co.push_back(c);
+		n1.setConnections(co);
+	//fin initialisations
 		while (clock<TotalNumberOfTimeIncrement){
-			for(auto& n:network.getNeurones()){
-				bool spike=n.update(1,clock); //arguments pour neurone::update ??
+			for(auto& n:network){ //for(auto& n:network.getNeurones())
+				bool spike=n.update(1); //arguments pour neurone::update ?? Iext?
 				if(spike){
 					for(auto& connection:n.getConnections()){
 						(connection.getPost()).receive(clock+D),connection.getJ());
