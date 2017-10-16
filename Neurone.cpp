@@ -6,7 +6,7 @@
 using namespace std;
 
 	Neurone::Neurone (int clock)
-	:membranePotential_(STANDART_POTENTIAL),localClock_(clock){}
+	:membranePotential_(STANDART_POTENTIAL),localClock_(clock),spikeRingBuffer_(D+1,0.0){}
 	
 	bool Neurone::update(double const& ElectricInput){
 				bool spike(false);
@@ -26,10 +26,12 @@ using namespace std;
 				else
 				{
 					double NewPotential;
-					NewPotential=membranePotential_*exp(-TimeIncrement/Tau);
-					NewPotential+=ElectricInput*NeuroneResistance*(1-exp(-TimeIncrement/Tau));
+					NewPotential=membranePotential_*exp(-TimeIncrement/Tau)+ElectricInput*NeuroneResistance*(1-exp(-TimeIncrement/Tau));
+					size_t currentIndex(localClock_%(D+1));
+					NewPotential+=spikeRingBuffer_[currentIndex]; //on a network
 					membranePotential_=NewPotential;
 				}
+				++localClock_;
 				return spike;
 				}
 			
@@ -38,7 +40,18 @@ using namespace std;
 	double Neurone::getMembranePotential() const{
 		return membranePotential_;
 	}
-	vector<double> Neurone::getSpikesTime() const{
-		return SpikesTime_;
+
+	std::vector<int> Neurone::getSpikesTimeInNumberOfTimeIncrement() const{
+		return SpikesTimeInNumberOfTimeIncrement_;
+	}
+	vector<Connection> Neurone::getConnections() const{
+		return connections_;
+	}
+	void Neurone::setConnections (vector<Connection>& connections){
+		connections_=connections;
+	}
+	void Neurone::receive(int clockPlusDelay,double J){
+		size_t storageIndex(clockPlusDelay % (D+1));
+		spikeRingBuffer_[storageIndex]+=J;
 	}
 
