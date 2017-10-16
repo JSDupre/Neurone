@@ -59,7 +59,7 @@ int main() {
 				bool spike=n.update(1,clock); //arguments pour neurone::update ??
 				if(spike){
 					for(auto& connection:n.getConnections()){
-						(connection.getPost()).receive(clock+connection.getD(),connection.getJ());
+						(connection.getPost()).receive(clock+D),connection.getJ());
 					}
 				}
 			}
