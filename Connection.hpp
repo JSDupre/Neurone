@@ -1,5 +1,7 @@
 
 
+class Neurone;//predeclaration pour eviter dependance circulaire
+
 class Connection {
   private: 
     Neurone* presynapticNeurone_;
