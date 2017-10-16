@@ -8,9 +8,10 @@ class Neurone {
 	private:
 	double membranePotential_;
 	std::vector<double> SpikesTime_;
-	double RefractoryClock_;
-	vector<Neurone*> targets_;// a utiliser
-	double J; //propre à chaque neurone ?
+	double RefractoryClock_;//plutot comparer temps du dernier spike dans Spikes time ?
+	std::vector<Neurone*> targets_;// a utiliser
+	int localClock_;
+	//std::array<double,??
 	
 	public:
 	Neurone ();
