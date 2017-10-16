@@ -18,6 +18,7 @@ class Neurone {
 	double getMembranePotential() const;
 	std::vector<double> getSpikesTime() const;
 	vector<Connection> getConnections();
+	void setConnections (vector<Connection>& connections);//const& ?
 };
 
 #endif
