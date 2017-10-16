@@ -12,9 +12,10 @@ class Neurone {
 	int localClock_;                                     //local clock for the neurone (can be incremented before the global simulation clock)
 	std::vector<Connection> connections_;                //all the connection the neurone have (s
 	std::vector<double,D> spikeRingBuffer_;		     //used to sum the different J of every presynaptic neurones who has fired after a certain delay D
+	double Iext_;					     //Intensity comming from the outside
 	
 	public:
-	Neurone ();
+	Neurone (int clock,double Iext);
 	bool update(unsigned int const& NumberOfTimeIncrement,double const& ElectricInput,double const& InitialTime);
 	double getMembranePotential() const;
 	std::vector<int> getSpikesTimeInNumberOfTimeIncrement() const;
