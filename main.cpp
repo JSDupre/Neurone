@@ -22,24 +22,9 @@ double AskUserADouble() {
 	return result;
 	}
 
-void AskUserAnIntervalle(double borneInf, double borneSup,double min,double max)
-{
-	/*
-	do{
-		cout<<"entrez borne inf (entre 0 et Tstop)"<<endl;
-	borneInf=AskUserADouble();
-	} while (borneInf<min or borneInf>max);
-	
-	do{
-		cout<<"entrez borne sup (entre borne sup et Tstop)"<<endl;
-	borneSup=AskUserADouble();
-	} while (borneSup<min or borneSup>max or borneSup<borneInf);*/
-}
-
-
 int main() {
-		Neurone n; //un neurone
-		vector<Neurone> neurones; //suivi de toutes les etapes d'initialisation necessaire
+		Network network;
+		network.BuildNetwork(2,1);//pour l'instant 2 neurones connectés
 		
 		cout<<"temps de simulation? (ms)"<<endl;
 		double Tstop(AskUserADouble());
@@ -55,7 +40,7 @@ int main() {
 		double Iext(AskUserADouble());
 		
 		ofstream f("values.txt",ios::trunc);//declaration du stream d'ecriture
-		
+		/*
 		//simulation loop for a single neurone
 		for(unsigned int i(0);i<TotalNumberOfIncrement;++i){
 			recordValue(n,i*TimeIncrement,f);
@@ -66,19 +51,19 @@ int main() {
 				n.update(1,0.0,0.0);
 			}
 		}
-		
-		double clock(Tstart);
+		*/
+		double clock(0);
 		//loop for two or more neurone
-		while (clock<Tstop){
-			for(auto& n:neurones){
-				bool spike=n.update(1,I?,0.0);//calcul de I en fonction du nombre de spike des pre neurones?
+		while (clock<TotalNumberOfTimeIncrement){
+			for(auto& n:network.getNeurones()){
+				bool spike=n.update(1,clock); //arguments pour neurone::update ??
 				if(spike){
-					for(auto& post:n.getTargets()){
-						(*post).receive(clock+D,J);//J? D?
+					for(auto& connection:n.getConnections()){
+						(connection.getPost()).receive(clock+connection.getD(),connection.getJ());
 					}
 				}
 			}
-			clock+=TimeIncrement;
+			clock+=1;
 		}
 			
 		
