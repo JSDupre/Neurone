@@ -55,12 +55,12 @@ int main() {
 	//test for 2 neurons
 		Neurone n1(clock,1.2);
 		Neurone n2(clock,0.0);
-		vector<Neurone&> network;
+		vector<Neurone> network;
 		network.push_back(n1);
 		network.push_back(n2);
 		Neurone* ptr(&n2);
 		Connection c(ptr,0.01);
-		vector<Connection&> co;
+		vector<Connection> co;
 		co.push_back(c);
 		n1.setConnections(co);
 	//fin initialisations
