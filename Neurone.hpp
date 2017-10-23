@@ -21,7 +21,7 @@ class Neurone {
 	double getMembranePotential() const;
 	std::vector<int> getSpikesTimeInNumberOfTimeIncrement() const;
 	std::vector<Connection> getConnections() const;
-	void setConnections (std::vector<Connection>& connections);//const& ?
+	void setConnections (std::vector<Connection> & connections);//const& ?
 	void receive(int clockPlusDelay,double J);
 };
 

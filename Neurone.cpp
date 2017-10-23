@@ -4,7 +4,7 @@
 using namespace std;
 
 	Neurone::Neurone (int clock,double Iext)
-	:spikeRingBuffer_(D+1),membranePotential_(STANDART_POTENTIAL),localClock_(clock),Iext_(Iext){}
+	:spikeRingBuffer_((int)(D/TimeIncrement)+1),membranePotential_(STANDART_POTENTIAL),localClock_(clock),Iext_(Iext){}
 	
 	bool Neurone::update(unsigned int const& NumberOfTimeIncrement){
 		bool spike(false);
@@ -16,12 +16,12 @@ using namespace std;
 					//2 the neurone goes refractory: the potential fall down to 0
 					membranePotential_=RefractoryPotential;
 					spike=true;
-				}
-						
-				else if((localClock_-SpikesTimeInNumberOfTimeIncrement_.back())<=RefractoryTimeInTimeIncrement) //on regarde le temps ecoulé depuis le dernier spike
+				} 
+				
+				else if(not SpikesTimeInNumberOfTimeIncrement_.empty() and (localClock_-SpikesTimeInNumberOfTimeIncrement_.back())<=RefractoryTimeInTimeIncrement) //on regarde le temps ecoulé depuis le dernier spike
 				{
 					membranePotential_=RefractoryPotential;
-				}
+				} 
 				else
 				{
 					double NewPotential;
@@ -30,7 +30,7 @@ using namespace std;
 					NewPotential+=spikeRingBuffer_[currentIndex]; //on a network
 					membranePotential_=NewPotential;
 				}
-				++localClock_;
+				localClock_+=1;
 				}
 			
 			return spike;
