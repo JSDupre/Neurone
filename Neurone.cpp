@@ -29,6 +29,8 @@ using namespace std;
 					size_t currentIndex(localClock_%(D+1));
 					NewPotential+=spikeRingBuffer_[currentIndex]; //on a network
 					membranePotential_=NewPotential;
+					//reinitialsitation of the ring buffer case
+					spikeRingBuffer_[currentIndex]=0.0;
 				}
 				localClock_+=1;
 				}
