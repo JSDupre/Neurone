@@ -23,6 +23,8 @@ class Neurone {
 	std::vector<Connection> getConnections() const;
 	void setConnections (std::vector<Connection> & connections);//const& ?
 	void receive(int clockPlusDelay,double J);
+	std::vector<double> getRingBuffer() const;
+	int getLocalClock() const;
 };
 
 #endif

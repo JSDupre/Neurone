@@ -53,30 +53,34 @@ int main() {
 		int clock(0);
 		//loop for two or more neurone
 	//test for 2 neurons
-		Neurone n1(clock,5);
+		Neurone n1(clock,170);
 		Neurone n2(clock,0.0);
 		vector<Neurone> network;
 		network.push_back(n1);
 		network.push_back(n2);
 		Neurone* ptr(&n2);
-		//cerr<<(*ptr).getMembranePotential()<<endl;//ca a l'air de marcher
-		Connection c(ptr,0.01);
+		Connection c(ptr,200);
 		vector<Connection> co;
 		co.push_back(c);
-		if(not co.empty()){cerr<<"pas vide"<<endl;}
 		n1.setConnections(co);
-		if(not (n1.getConnections()).empty()){cerr<<"pas vide"<<endl;}
-		//cerr<<(((n1.getConnections())[0]).getPost())->getMembranePotential()<<endl;
 	//fin initialisations
 		while (clock<TotalNumberOfTimeIncrement){
 			for(auto& n:network){ //for(auto& n:network.getNeurones())
-				bool spike(n.update(1)); //arguments pour neurone::update ?? Iext?
+				bool spike(n.update(1));
+				//cerr<<n.getMembranePotential()<<endl;
 				if(spike){
 					cerr<<"SPIKE"<<endl;
-					for(auto& connection:n.getConnections()){
+					/*for(auto& connection:n.getConnections()){
 						cerr<<"boucle"<<endl;
 						(connection.getPost())->receive((clock+D),connection.getJ());
-					}
+					}*/
+					
+			cerr<<"clock et deali : "<<clock+DelayInTimeIncrement<<endl;
+					((n1.getConnections())[0].getPost())->receive((clock+ DelayInTimeIncrement),(n1.getConnections())[0].getJ());
+					cerr<<(n2.getConnections()).size()<<endl;
+					/*for(auto& v:n2.getRingBuffer()){
+						cerr<<v<<endl;
+					}*/
 				}
 			}
 			recordValue(n1,clock*TimeIncrement,f);//record
