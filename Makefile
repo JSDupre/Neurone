@@ -42,10 +42,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S5
+CMAKE_SOURCE_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S7
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S5
+CMAKE_BINARY_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S7
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -72,9 +72,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S5/CMakeFiles /home/INTRANET/dupre/myfiles/infoBA3/S5/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles /home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S5/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -114,29 +114,29 @@ Neurone/fast:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/build
 .PHONY : Neurone/fast
 
-Connection.o: Connection.cpp.o
-.PHONY : Connection.o
+Network.o: Network.cpp.o
+.PHONY : Network.o
 
 # target to build an object file
-Connection.cpp.o:
-	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Connection.cpp.o
-.PHONY : Connection.cpp.o
+Network.cpp.o:
+	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Network.cpp.o
+.PHONY : Network.cpp.o
 
-Connection.i: Connection.cpp.i
-.PHONY : Connection.i
+Network.i: Network.cpp.i
+.PHONY : Network.i
 
 # target to preprocess a source file
-Connection.cpp.i:
-	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Connection.cpp.i
-.PHONY : Connection.cpp.i
+Network.cpp.i:
+	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Network.cpp.i
+.PHONY : Network.cpp.i
 
-Connection.s: Connection.cpp.s
-.PHONY : Connection.s
+Network.s: Network.cpp.s
+.PHONY : Network.s
 
 # target to generate assembly for a file
-Connection.cpp.s:
-	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Connection.cpp.s
-.PHONY : Connection.cpp.s
+Network.cpp.s:
+	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Network.cpp.s
+.PHONY : Network.cpp.s
 
 Neurone.o: Neurone.cpp.o
 .PHONY : Neurone.o
@@ -195,9 +195,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Neurone"
-	@echo "... Connection.o"
-	@echo "... Connection.i"
-	@echo "... Connection.s"
+	@echo "... Network.o"
+	@echo "... Network.i"
+	@echo "... Network.s"
 	@echo "... Neurone.o"
 	@echo "... Neurone.i"
 	@echo "... Neurone.s"

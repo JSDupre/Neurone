@@ -1,9 +1,8 @@
 #include <iostream>
-#include "Neurone.hpp"
 #include <fstream>
 #include <iomanip>
 #include <vector>
-#include "Connection.hpp"
+#include "Network.hpp"
 using namespace std;
 
 bool isInIntervalle(double ToTest,double Inf,double Sup){
@@ -53,40 +52,38 @@ int main() {
 		int clock(0);
 		//loop for two or more neurone
 	//test for 2 neurons
-		Neurone n1(clock,170);
+		/*Neurone n1(clock,170);
 		Neurone n2(clock,0.0);
 		vector<Neurone> network;
 		network.push_back(n1);
 		network.push_back(n2);
-		Neurone* ptr(&n2);
-		Connection c(ptr,200);
+		Connection c(1,200);//connection to n2
 		vector<Connection> co;
 		co.push_back(c);
-		n1.setConnections(co);
+		n1.setConnections(co);*/
+		Network network (2,1,1,0,clock);
+		network.runSimulation(Tstop);
 	//fin initialisations
-		while (clock<TotalNumberOfTimeIncrement){
+		/*while (clock<TotalNumberOfTimeIncrement){
 			for(auto& n:network){ //for(auto& n:network.getNeurones())
-				bool spike(n.update(1));
-				//cerr<<n.getMembranePotential()<<endl;
+				bool spike(*n.update(1)); //arguments pour neurone::update ?? Iext?
 				if(spike){
 					cerr<<"SPIKE"<<endl;
-					/*for(auto& connection:n.getConnections()){
+					for(auto& connection:n->getConnections()){
 						cerr<<"boucle"<<endl;
-						(connection.getPost())->receive((clock+D),connection.getJ());
-					}*/
-					
-			cerr<<"clock et deali : "<<clock+DelayInTimeIncrement<<endl;
-					((n1.getConnections())[0].getPost())->receive((clock+ DelayInTimeIncrement),(n1.getConnections())[0].getJ());
-					cerr<<(n2.getConnections()).size()<<endl;
+						//network.getNeurones()[connection.getPostIndix()]->receive((clock+D),connection.getJ());
+
+					}
+					//((n2.getConnections()).getPost())->receive((clock+ DelayInTimeIncrement),(n2.getConnections()).getJ());
 					/*for(auto& v:n2.getRingBuffer()){
 						cerr<<v<<endl;
-					}*/
+					}
 				}
 			}
 			recordValue(n1,clock*TimeIncrement,f);//record
 			clock+=1;
-		}
-			
+		}*/
+		
 		
 		return 0;
 	}

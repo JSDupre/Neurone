@@ -4,11 +4,14 @@
 	const double TimeIncrement(0.1);//ms
 	const double C(1.0);//ms/ohm
 	const double STANDART_POTENTIAL(0.0);//?
-	const double RefractoryTime(2);//ms
+	const double RefractoryTime(1);//ms (2 normalement)
 	const double RefractoryPotential(0.0);
 	const double NeuroneResistance(Tau/C);
 	const int RefractoryTimeInTimeIncrement(RefractoryTime/TimeIncrement);
-	const int DelayInTimeIncrement(5);
+	const int D(15); //delay
+	const int DelayInTimeIncrement(D/TimeIncrement);
+	const double J(5.0); //connection strenght, constant for each connection for simplification
+	const double Iexterieur(17);
 	
 	
 	

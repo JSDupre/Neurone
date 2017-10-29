@@ -4,9 +4,9 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
-  "/home/INTRANET/dupre/myfiles/infoBA3/S5/Connection.cpp" "/home/INTRANET/dupre/myfiles/infoBA3/S5/CMakeFiles/Neurone.dir/Connection.cpp.o"
-  "/home/INTRANET/dupre/myfiles/infoBA3/S5/Neurone.cpp" "/home/INTRANET/dupre/myfiles/infoBA3/S5/CMakeFiles/Neurone.dir/Neurone.cpp.o"
-  "/home/INTRANET/dupre/myfiles/infoBA3/S5/main.cpp" "/home/INTRANET/dupre/myfiles/infoBA3/S5/CMakeFiles/Neurone.dir/main.cpp.o"
+  "/home/INTRANET/dupre/myfiles/infoBA3/S7/Network.cpp" "/home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles/Neurone.dir/Network.cpp.o"
+  "/home/INTRANET/dupre/myfiles/infoBA3/S7/Neurone.cpp" "/home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles/Neurone.dir/Neurone.cpp.o"
+  "/home/INTRANET/dupre/myfiles/infoBA3/S7/main.cpp" "/home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles/Neurone.dir/main.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

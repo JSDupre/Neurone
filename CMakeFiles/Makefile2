@@ -47,10 +47,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S5
+CMAKE_SOURCE_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S7
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S5
+CMAKE_BINARY_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S7
 
 #=============================================================================
 # Target rules for target CMakeFiles/Neurone.dir
@@ -59,7 +59,7 @@ CMAKE_BINARY_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S5
 CMakeFiles/Neurone.dir/all:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/depend
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/build
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/INTRANET/dupre/myfiles/infoBA3/S5/CMakeFiles  1 2 3
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles  1 2 3
 	@echo "Built target Neurone"
 .PHONY : CMakeFiles/Neurone.dir/all
 
@@ -69,9 +69,9 @@ all: CMakeFiles/Neurone.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/Neurone.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S5/CMakeFiles 3
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/Neurone.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S5/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles 0
 .PHONY : CMakeFiles/Neurone.dir/rule
 
 # Convenience name for target.

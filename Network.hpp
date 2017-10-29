@@ -1,5 +1,5 @@
 #include "Neurone.hpp"
-#include <array>
+#include <vector>
 
 #ifndef NETWORK_H
 #define NETWORK_H
@@ -7,11 +7,16 @@
 class Network{
    private: 
       std::vector<Neurone*> neurones_;
+      int clock_;
+      std::vector<int> createConnectionForANeurone(unsigned int numberOfNeurones,double exitatoryProportion,
+      	unsigned int indixAfterWichEachNeuroneIsInhibitory,double exitatoryConnectionProbability,
+      	double inhibitoryConnectionProbability,unsigned int NeuroneIndix);
    public:
-      Network();
-      BuildNetwork(unsigned int number_of_neurones, double connection_probability);
-      int run(clock,...);
-      getNeurones();
+      Network(unsigned int numberOfNeurones,double exitatoryProportion,
+      	double exitatoryConnectionProbability,double inhibitoryConnectionProbability,int clock);
+  
+      ~Network();
+      void runSimulation(double Tstop);
  };
 
 #endif

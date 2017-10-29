@@ -1,16 +1,13 @@
 #include "Connection.hpp"
 
 
-    Connection::Connection(Neurone* post,double J)
-    :postsynapticNeurone_(post),J_(J){}
+    Connection::Connection((unsigned int postIndix,double J)
+    :postsynapticNeuroneIndix_(postIndix),J_(J){}
     
-    Neurone* Connection::getPost(){
-      return postsynapticNeurone_;
+    unsigned int Connection::getPostIndix() const{
+      return postsynapticNeuroneIndix_;
     }
     double Connection::getJ() const{
       return J_;
     }
 	
-	Connection::~Connection(){
-		//postsynapticNeurone_=nullptr;
-	}

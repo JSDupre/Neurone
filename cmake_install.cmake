@@ -1,4 +1,4 @@
-# Install script for directory: /home/INTRANET/dupre/myfiles/infoBA3/S5
+# Install script for directory: /home/INTRANET/dupre/myfiles/infoBA3/S7
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/INTRANET/dupre/myfiles/infoBA3/S5/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/INTRANET/dupre/myfiles/infoBA3/S7/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
