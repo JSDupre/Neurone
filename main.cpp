@@ -61,6 +61,11 @@ int main() {
 		vector<Connection> co;
 		co.push_back(c);
 		n1.setConnections(co);*/
+		/*Neurone n(0,1.01,true);
+		bool spike=n.update(5000);
+		for(auto& nb:n.getSpikesTimeInNumberOfTimeIncrement()){
+			cerr<<"time :"<<nb<<endl;
+		}*/
 		Network network (2,1,1,0,clock);
 		network.runSimulation(Tstop);
 	//fin initialisations

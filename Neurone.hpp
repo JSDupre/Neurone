@@ -7,6 +7,7 @@
 
 class Neurone {
 	private:
+	int neurone_ID_;
 	double membranePotential_; 
 	std::vector<int> SpikesTimeInNumberOfTimeIncrement_; //store the spikes time (a certain number of time incrment)
 	int localClock_;                                     //local clock for the neurone (can be incremented before the global simulation clock)
@@ -16,7 +17,7 @@ class Neurone {
 	bool isExitatory_;
 
 	public:
-	Neurone (int clock,double Iext,bool isExitatory);
+	Neurone (int clock,double Iext,bool isExitatory, int neuroneID);
 	bool update(unsigned int const& NumberOfTimeIncrement);
 	double getMembranePotential() const;
 	std::vector<int> getSpikesTimeInNumberOfTimeIncrement() const;
@@ -26,6 +27,7 @@ class Neurone {
 	void receive(int clockPlusDelay,double J);
 	std::vector<double> getRingBuffer() const;
 	double getJsentToPostSynapticNeurone() const;
+	int getNeuroneID() const;
 };
 
 #endif

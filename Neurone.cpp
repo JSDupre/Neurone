@@ -1,11 +1,12 @@
 #include <iostream>
 #include "Neurone.hpp"
 #include <cmath>
+#include <random>
 using namespace std;
 
-	Neurone::Neurone (int clock,double Iext,bool isExitatory)
+	Neurone::Neurone (int clock,double Iext,bool isExitatory,int neuroneID)
 	:spikeRingBuffer_(DelayInTimeIncrement+1,0.0),membranePotential_(STANDART_POTENTIAL)
-	,localClock_(clock),Iext_(Iext),isExitatory_(isExitatory){}
+	,localClock_(clock),Iext_(Iext),isExitatory_(isExitatory),neurone_ID_(neuroneID){}
 	
 	bool Neurone::update(unsigned int const& NumberOfTimeIncrement){
 		bool spike(false);
@@ -26,14 +27,18 @@ using namespace std;
 				} 
 				else
 				{
-					double NewPotential;
-					NewPotential=membranePotential_*exp(-TimeIncrement/Tau)+Iext_*NeuroneResistance*(1-exp(-TimeIncrement/Tau));
-					NewPotential+=spikeRingBuffer_[currentIndex]; 
-					if(spikeRingBuffer_[currentIndex]!=0.0){cerr<<"Ring buff value : "<<spikeRingBuffer_[currentIndex]<<endl;}
-					membranePotential_=NewPotential;
+					static random_device rd;
+					static mt19937 gen(rd());
+					static poisson_distribution<> distribution (Ce*NuExt);
+					int numberOfExternalSpike(distribution(gen));
+					double externalRandomPart(Je*numberOfExternalSpike);
+					
+					double decayingPart(membranePotential_*R1);
+					double externalCurrentPart(Iext_*R2);
+					membranePotential_=decayingPart+externalCurrentPart+spikeRingBuffer_[currentIndex]+externalRandomPart;
 				}
 				localClock_+=1;
-				//reset ring buffer
+				//reset ring buffer slot
 				spikeRingBuffer_[currentIndex]=0.0;
 				}
 			
@@ -62,6 +67,10 @@ using namespace std;
 	}
 
 	double Neurone::getJsentToPostSynapticNeurone() const{
-		if(isExitatory_){return J;}
-		else{return-J;}
+		if(isExitatory_){return Je;}
+		else{return-Ji;}
+	}
+	
+	int Neurone::getNeuroneID() const{
+		return neurone_ID_;
 	}

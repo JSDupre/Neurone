@@ -17,6 +17,7 @@ class Network{
   
       ~Network();
       void runSimulation(double Tstop);
+      *Neurone getNeuroneAtIndix(int indix);
  };
 
 #endif

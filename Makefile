@@ -42,10 +42,10 @@ RM = /usr/local/bin/cmake -E remove -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S7
+CMAKE_SOURCE_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S2
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S7
+CMAKE_BINARY_DIR = /home/INTRANET/dupre/myfiles/infoBA3/S2
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -70,11 +70,21 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target test
+test:
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running tests..."
+	/usr/local/bin/ctest --force-new-ctest-process $(ARGS)
+.PHONY : test
+
+# Special rule for the target test
+test/fast: test
+.PHONY : test/fast
+
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles /home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S2/CMakeFiles /home/INTRANET/dupre/myfiles/infoBA3/S2/CMakeFiles/progress.marks
 	$(MAKE) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S7/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/INTRANET/dupre/myfiles/infoBA3/S2/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -113,6 +123,45 @@ Neurone: cmake_check_build_system
 Neurone/fast:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/build
 .PHONY : Neurone/fast
+
+#=============================================================================
+# Target rules for targets named unittest
+
+# Build rule for target.
+unittest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 unittest
+.PHONY : unittest
+
+# fast build rule for target.
+unittest/fast:
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/build
+.PHONY : unittest/fast
+
+#=============================================================================
+# Target rules for targets named gtest
+
+# Build rule for target.
+gtest: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest
+.PHONY : gtest
+
+# fast build rule for target.
+gtest/fast:
+	$(MAKE) -f gtest/CMakeFiles/gtest.dir/build.make gtest/CMakeFiles/gtest.dir/build
+.PHONY : gtest/fast
+
+#=============================================================================
+# Target rules for targets named gtest_main
+
+# Build rule for target.
+gtest_main: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 gtest_main
+.PHONY : gtest_main
+
+# fast build rule for target.
+gtest_main/fast:
+	$(MAKE) -f gtest/CMakeFiles/gtest_main.dir/build.make gtest/CMakeFiles/gtest_main.dir/build
+.PHONY : gtest_main/fast
 
 Network.o: Network.cpp.o
 .PHONY : Network.o
@@ -162,6 +211,30 @@ Neurone.cpp.s:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Neurone.cpp.s
 .PHONY : Neurone.cpp.s
 
+gtest.o: gtest.cpp.o
+.PHONY : gtest.o
+
+# target to build an object file
+gtest.cpp.o:
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/gtest.cpp.o
+.PHONY : gtest.cpp.o
+
+gtest.i: gtest.cpp.i
+.PHONY : gtest.i
+
+# target to preprocess a source file
+gtest.cpp.i:
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/gtest.cpp.i
+.PHONY : gtest.cpp.i
+
+gtest.s: gtest.cpp.s
+.PHONY : gtest.s
+
+# target to generate assembly for a file
+gtest.cpp.s:
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/gtest.cpp.s
+.PHONY : gtest.cpp.s
+
 main.o: main.cpp.o
 .PHONY : main.o
 
@@ -195,12 +268,19 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... Neurone"
+	@echo "... unittest"
+	@echo "... test"
+	@echo "... gtest"
+	@echo "... gtest_main"
 	@echo "... Network.o"
 	@echo "... Network.i"
 	@echo "... Network.s"
 	@echo "... Neurone.o"
 	@echo "... Neurone.i"
 	@echo "... Neurone.s"
+	@echo "... gtest.o"
+	@echo "... gtest.i"
+	@echo "... gtest.s"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

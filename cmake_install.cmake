@@ -1,4 +1,4 @@
-# Install script for directory: /home/INTRANET/dupre/myfiles/infoBA3/S7
+# Install script for directory: /home/INTRANET/dupre/myfiles/infoBA3/S2
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -32,6 +32,12 @@ if(NOT DEFINED CMAKE_INSTALL_SO_NO_EXE)
   set(CMAKE_INSTALL_SO_NO_EXE "1")
 endif()
 
+if(NOT CMAKE_INSTALL_LOCAL_ONLY)
+  # Include the install script for each subdirectory.
+  include("/home/INTRANET/dupre/myfiles/infoBA3/S2/gtest/cmake_install.cmake")
+
+endif()
+
 if(CMAKE_INSTALL_COMPONENT)
   set(CMAKE_INSTALL_MANIFEST "install_manifest_${CMAKE_INSTALL_COMPONENT}.txt")
 else()
@@ -40,5 +46,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/INTRANET/dupre/myfiles/infoBA3/S7/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/INTRANET/dupre/myfiles/infoBA3/S2/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

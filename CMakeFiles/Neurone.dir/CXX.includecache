@@ -6,39 +6,43 @@
 
 #IncludeRegexTransform: 
 
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Constants.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
+cmath
+-
 
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Network.cpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Network.cpp
 Network.hpp
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Network.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Network.hpp
 random
 -
 cassert
 -
 
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Network.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Network.hpp
 Neurone.hpp
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Neurone.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
 vector
 -
 
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Neurone.cpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.cpp
 iostream
 -
 Neurone.hpp
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Neurone.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
 cmath
 -
+random
+-
 
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Neurone.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
 iostream
 -
 vector
 -
 Constants.hpp
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Constants.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
 
-/home/INTRANET/dupre/myfiles/infoBA3/S7/main.cpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/main.cpp
 iostream
 -
 fstream
@@ -48,5 +52,5 @@ iomanip
 vector
 -
 Network.hpp
-/home/INTRANET/dupre/myfiles/infoBA3/S7/Network.hpp
+/home/INTRANET/dupre/myfiles/infoBA3/S2/Network.hpp
 
