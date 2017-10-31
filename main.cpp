@@ -29,8 +29,7 @@ void writeSpikesDataFile(Network & network,ofstream& out,unsigned int numberOfNe
 	assert(numberOfNeuronesToRecord<=(network.getNeurones()).size());
 	for(unsigned int i(0);i<=numberOfNeuronesToRecord-1;++i){
 		for(unsigned int j(0);j<=((network.getNeurones())[i]->getSpikesTimeInNumberOfTimeIncrement()).size()-1;++j)
-		out<<i<<"/"<<((network.getNeurones())[i]->getSpikesTimeInNumberOfTimeIncrement()[j])
-		*TimeIncrement<<"/n";
+		out<<((network.getNeurones())[i]->getSpikesTimeInNumberOfTimeIncrement()[j])<<"\t"<<i<<"\n";
 	}
 }
 
