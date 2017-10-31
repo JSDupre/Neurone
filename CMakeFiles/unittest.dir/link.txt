@@ -1,1 +1,1 @@
-/usr/bin/c++   -O3 -std=c++11   CMakeFiles/unittest.dir/gtest.cpp.o  -o unittest -rdynamic -lgtest.cpp 
+/usr/bin/c++   -O3 -std=c++11   CMakeFiles/unittest.dir/Neurone.cpp.o CMakeFiles/unittest.dir/Network.cpp.o CMakeFiles/unittest.dir/gtest.cpp.o  -o unittest -rdynamic gtest/libgtest.a gtest/libgtest.a -pthread 

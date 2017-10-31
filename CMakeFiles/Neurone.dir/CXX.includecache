@@ -43,14 +43,10 @@ Constants.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
 
 /home/INTRANET/dupre/myfiles/infoBA3/S2/main.cpp
-iostream
--
 fstream
--
-iomanip
--
-vector
 -
 Network.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.hpp
+cassert
+-
 

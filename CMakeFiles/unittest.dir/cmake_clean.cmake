@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/unittest.dir/Neurone.cpp.o"
+  "CMakeFiles/unittest.dir/Network.cpp.o"
   "CMakeFiles/unittest.dir/gtest.cpp.o"
   "unittest.pdb"
   "unittest"

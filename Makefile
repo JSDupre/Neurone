@@ -169,6 +169,7 @@ Network.o: Network.cpp.o
 # target to build an object file
 Network.cpp.o:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Network.cpp.o
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/Network.cpp.o
 .PHONY : Network.cpp.o
 
 Network.i: Network.cpp.i
@@ -177,6 +178,7 @@ Network.i: Network.cpp.i
 # target to preprocess a source file
 Network.cpp.i:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Network.cpp.i
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/Network.cpp.i
 .PHONY : Network.cpp.i
 
 Network.s: Network.cpp.s
@@ -185,6 +187,7 @@ Network.s: Network.cpp.s
 # target to generate assembly for a file
 Network.cpp.s:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Network.cpp.s
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/Network.cpp.s
 .PHONY : Network.cpp.s
 
 Neurone.o: Neurone.cpp.o
@@ -193,6 +196,7 @@ Neurone.o: Neurone.cpp.o
 # target to build an object file
 Neurone.cpp.o:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Neurone.cpp.o
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/Neurone.cpp.o
 .PHONY : Neurone.cpp.o
 
 Neurone.i: Neurone.cpp.i
@@ -201,6 +205,7 @@ Neurone.i: Neurone.cpp.i
 # target to preprocess a source file
 Neurone.cpp.i:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Neurone.cpp.i
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/Neurone.cpp.i
 .PHONY : Neurone.cpp.i
 
 Neurone.s: Neurone.cpp.s
@@ -209,6 +214,7 @@ Neurone.s: Neurone.cpp.s
 # target to generate assembly for a file
 Neurone.cpp.s:
 	$(MAKE) -f CMakeFiles/Neurone.dir/build.make CMakeFiles/Neurone.dir/Neurone.cpp.s
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/Neurone.cpp.s
 .PHONY : Neurone.cpp.s
 
 gtest.o: gtest.cpp.o

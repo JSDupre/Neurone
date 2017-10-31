@@ -49,9 +49,55 @@ include CMakeFiles/unittest.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/unittest.dir/flags.make
 
+CMakeFiles/unittest.dir/Neurone.cpp.o: CMakeFiles/unittest.dir/flags.make
+CMakeFiles/unittest.dir/Neurone.cpp.o: Neurone.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/INTRANET/dupre/myfiles/infoBA3/S2/CMakeFiles $(CMAKE_PROGRESS_1)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/unittest.dir/Neurone.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/unittest.dir/Neurone.cpp.o -c /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.cpp
+
+CMakeFiles/unittest.dir/Neurone.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unittest.dir/Neurone.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.cpp > CMakeFiles/unittest.dir/Neurone.cpp.i
+
+CMakeFiles/unittest.dir/Neurone.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unittest.dir/Neurone.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.cpp -o CMakeFiles/unittest.dir/Neurone.cpp.s
+
+CMakeFiles/unittest.dir/Neurone.cpp.o.requires:
+.PHONY : CMakeFiles/unittest.dir/Neurone.cpp.o.requires
+
+CMakeFiles/unittest.dir/Neurone.cpp.o.provides: CMakeFiles/unittest.dir/Neurone.cpp.o.requires
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/Neurone.cpp.o.provides.build
+.PHONY : CMakeFiles/unittest.dir/Neurone.cpp.o.provides
+
+CMakeFiles/unittest.dir/Neurone.cpp.o.provides.build: CMakeFiles/unittest.dir/Neurone.cpp.o
+
+CMakeFiles/unittest.dir/Network.cpp.o: CMakeFiles/unittest.dir/flags.make
+CMakeFiles/unittest.dir/Network.cpp.o: Network.cpp
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/INTRANET/dupre/myfiles/infoBA3/S2/CMakeFiles $(CMAKE_PROGRESS_2)
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/unittest.dir/Network.cpp.o"
+	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/unittest.dir/Network.cpp.o -c /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.cpp
+
+CMakeFiles/unittest.dir/Network.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/unittest.dir/Network.cpp.i"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -E /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.cpp > CMakeFiles/unittest.dir/Network.cpp.i
+
+CMakeFiles/unittest.dir/Network.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/unittest.dir/Network.cpp.s"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_FLAGS) -S /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.cpp -o CMakeFiles/unittest.dir/Network.cpp.s
+
+CMakeFiles/unittest.dir/Network.cpp.o.requires:
+.PHONY : CMakeFiles/unittest.dir/Network.cpp.o.requires
+
+CMakeFiles/unittest.dir/Network.cpp.o.provides: CMakeFiles/unittest.dir/Network.cpp.o.requires
+	$(MAKE) -f CMakeFiles/unittest.dir/build.make CMakeFiles/unittest.dir/Network.cpp.o.provides.build
+.PHONY : CMakeFiles/unittest.dir/Network.cpp.o.provides
+
+CMakeFiles/unittest.dir/Network.cpp.o.provides.build: CMakeFiles/unittest.dir/Network.cpp.o
+
 CMakeFiles/unittest.dir/gtest.cpp.o: CMakeFiles/unittest.dir/flags.make
 CMakeFiles/unittest.dir/gtest.cpp.o: gtest.cpp
-	$(CMAKE_COMMAND) -E cmake_progress_report /home/INTRANET/dupre/myfiles/infoBA3/S2/CMakeFiles $(CMAKE_PROGRESS_1)
+	$(CMAKE_COMMAND) -E cmake_progress_report /home/INTRANET/dupre/myfiles/infoBA3/S2/CMakeFiles $(CMAKE_PROGRESS_3)
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Building CXX object CMakeFiles/unittest.dir/gtest.cpp.o"
 	/usr/bin/c++   $(CXX_DEFINES) $(CXX_FLAGS) -o CMakeFiles/unittest.dir/gtest.cpp.o -c /home/INTRANET/dupre/myfiles/infoBA3/S2/gtest.cpp
 
@@ -74,13 +120,19 @@ CMakeFiles/unittest.dir/gtest.cpp.o.provides.build: CMakeFiles/unittest.dir/gtes
 
 # Object files for target unittest
 unittest_OBJECTS = \
+"CMakeFiles/unittest.dir/Neurone.cpp.o" \
+"CMakeFiles/unittest.dir/Network.cpp.o" \
 "CMakeFiles/unittest.dir/gtest.cpp.o"
 
 # External object files for target unittest
 unittest_EXTERNAL_OBJECTS =
 
+unittest: CMakeFiles/unittest.dir/Neurone.cpp.o
+unittest: CMakeFiles/unittest.dir/Network.cpp.o
 unittest: CMakeFiles/unittest.dir/gtest.cpp.o
 unittest: CMakeFiles/unittest.dir/build.make
+unittest: gtest/libgtest.a
+unittest: gtest/libgtest.a
 unittest: CMakeFiles/unittest.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --red --bold "Linking CXX executable unittest"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/unittest.dir/link.txt --verbose=$(VERBOSE)
@@ -89,6 +141,8 @@ unittest: CMakeFiles/unittest.dir/link.txt
 CMakeFiles/unittest.dir/build: unittest
 .PHONY : CMakeFiles/unittest.dir/build
 
+CMakeFiles/unittest.dir/requires: CMakeFiles/unittest.dir/Neurone.cpp.o.requires
+CMakeFiles/unittest.dir/requires: CMakeFiles/unittest.dir/Network.cpp.o.requires
 CMakeFiles/unittest.dir/requires: CMakeFiles/unittest.dir/gtest.cpp.o.requires
 .PHONY : CMakeFiles/unittest.dir/requires
 

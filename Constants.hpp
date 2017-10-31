@@ -14,7 +14,7 @@
 	const double g(4);//  Ji/Je ,see paper
 	const int D(15); //delay in number of time increment
 	const double Je(0.1); //connection strenght, constant for each connection for simplification
-	const double Eta(0.02);
+	const double Eta(2);
 
 		//Precomputation of constants depending the previous ones to avoid useless operation
 	const double NeuroneResistance(Tau/C);
@@ -27,6 +27,10 @@
 	const double R2(NeuroneResistance*(1-exp(-TimeIncrement/Tau)));
 	const int Ce(NumberOfExitatoryNeurone*ProbabilityOfConnection);
 	const int Ci(NumberOfInhibitoryNeurone*ProbabilityOfConnection);
+	const int TOTAL_NUMBER_OF_NEURONES(NumberOfExitatoryNeurone+NumberOfInhibitoryNeurone);
+	const double NumberOfExitatoryNeuroneInDouble(NumberOfExitatoryNeurone);
+	const double NumberOfInhibitoryNeuroneInDouble(NumberOfInhibitoryNeurone);
+	const double EXITATORY_PROPORTION(NumberOfExitatoryNeuroneInDouble/(NumberOfExitatoryNeuroneInDouble+NumberOfInhibitoryNeuroneInDouble));
 
 	
 	

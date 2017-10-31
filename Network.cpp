@@ -18,10 +18,10 @@ using namespace std;
 			int numberOfExitatoryNeurones(numberOfNeurones*exitatoryProportion);
 		for (unsigned int i(0);i<=numberOfNeurones;++i){
 			if(i<numberOfExitatoryNeurones){ //i start at 0 so < and not <=
-				neurones_.push_back(new Neurone(clock,Iexterieur,true));
+				neurones_.push_back(new Neurone(clock,Iexterieur,true,i));
 			}
 			else{
-				neurones_.push_back(new Neurone(clock,Iexterieur,false));
+				neurones_.push_back(new Neurone(clock,Iexterieur,false,i));
 			}
 		}
 			//creating the connection
@@ -36,11 +36,11 @@ using namespace std;
       	unsigned int indixAfterWichEachNeuroneIsInhibitory,double exitatoryConnectionProbability,double inhibitoryConnectionProbability,unsigned int NeuroneIndix){
 			vector<int> connections;
 			//generation aléatoire
-			random_device rd;
-			mt19937 gen(rd());
+			static random_device rd;
+			static mt19937 gen(rd());
 
 			//uniforme sur les excitatoires
-			std::uniform_int_distribution<int> distributionEx(0,indixAfterWichEachNeuroneIsInhibitory);
+			static std::uniform_int_distribution<int> distributionEx(0,indixAfterWichEachNeuroneIsInhibitory);
 			int numberOfExitatoryNeuronesConnection (numberOfNeurones*exitatoryConnectionProbability);
 			for(unsigned int i(0);i<numberOfExitatoryNeuronesConnection;++i){
 				int indix = distributionEx(gen);
@@ -48,7 +48,7 @@ using namespace std;
 			}
 
 			//uniforme sur les inhib
-			std::uniform_int_distribution<int> distributionIn(indixAfterWichEachNeuroneIsInhibitory+1,numberOfNeurones-1);
+			static std::uniform_int_distribution<int> distributionIn(indixAfterWichEachNeuroneIsInhibitory+1,numberOfNeurones-1);
 			int numberOfInhibitoryNeuronesConnection (numberOfNeurones*inhibitoryConnectionProbability);
 			for(unsigned int i(0);i<numberOfInhibitoryNeuronesConnection ;++i){
 				int indix = distributionIn(gen);
@@ -73,9 +73,7 @@ using namespace std;
      	while (clock_<TotalNumberOfTimeIncrement){
 			for(auto& n:neurones_){ 
 				bool spike(n->update(1));
-				cerr<<n->getMembranePotential()<<endl;
 				if(spike){
-					cerr<<"SPIKE"<<endl;
 					for(auto& indixNeuroneConnected:n->getConnections()){
 						neurones_[indixNeuroneConnected]->receive((clock_+D),n->getJsentToPostSynapticNeurone());
 						//network.getNeurones()[connection.getPostIndix()]->receive((clock+D),connection.getJ());
@@ -86,6 +84,10 @@ using namespace std;
 			clock_+=1;
 		}
      }
+     
+     vector<Neurone*> Network::getNeurones(){
+		 return neurones_;
+	 }
       
      /* void Network::BuildNetwork(unsigned int number_of_neurones, double connection_probability){
         for(unsigned int i(0);i<number_of_neurones;++i){
