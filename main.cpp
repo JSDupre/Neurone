@@ -15,7 +15,9 @@ int main() {
 		double Tstop(AskUserADouble());
 		int clock(0);
 		Network network (TOTAL_NUMBER_OF_NEURONES,EXITATORY_PROPORTION,ProbabilityOfConnection,ProbabilityOfConnection,clock);
+		cerr<<"build network fini"<<endl;
 		network.runSimulation(Tstop);
+		cerr<<"simulation finished"<<endl;
 		
 			//writing simulation result for latter analisys
 		ofstream spikeWriting("spikes.txt",ios::trunc);//declaration du stream d'ecriture
