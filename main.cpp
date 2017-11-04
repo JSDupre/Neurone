@@ -5,9 +5,8 @@
 #include  <cassert>
 using namespace std;
 
-void writeSpikesDataFile(Network & network,ofstream& out,unsigned int numberOfNeuronesToRecord);
 double AskUserADouble();
-
+void writeSpikesDataFile(Network & network,unsigned int numberOfNeuronesToRecord);
 
 int main() {
 			//simulation
@@ -18,23 +17,23 @@ int main() {
 		cerr<<"build network fini"<<endl;
 		network.runSimulation(Tstop);
 		cerr<<"simulation finished"<<endl;
-		
 			//writing simulation result for latter analisys
-		ofstream spikeWriting("spikes.txt",ios::trunc);//declaration du stream d'ecriture
-		writeSpikesDataFile(network,spikeWriting,30);
+		writeSpikesDataFile(network,100);
 		cerr<<"ecriture ok"<<endl;
 		
 		return 0;
 	}
-
-void writeSpikesDataFile(Network & network,ofstream& out,unsigned int numberOfNeuronesToRecord)
+void writeSpikesDataFile(Network & network,unsigned int numberOfNeuronesToRecord)
 {
+	ofstream out("spikes.txt",ios::trunc); //declaration stream d'ecriture
 	for(unsigned int i(0);i<numberOfNeuronesToRecord;++i){
 		for(unsigned int j(0);j<(network.getSpikesVectorForNeuroneAtIndix(i)).size();++j){
-		out<<network.getSpikesVectorForNeuroneAtIndix(i)[j]<<"\t"<<i<<"\n";
+		out<<network.getSpikesVectorForNeuroneAtIndix(i)[j]*0.001<<"\t"<<i<<"\n"; //the 0.01 is to adjust the graph to the settings of the web application wich draw
+																				// the graph
 		}
 	}
 }
+
 
 double AskUserADouble() {
 	//on pourrait checker que l'entrée soit correcte

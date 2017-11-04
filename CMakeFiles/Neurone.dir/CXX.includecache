@@ -23,6 +23,8 @@ Neurone.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
 vector
 -
+fstream
+-
 
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.cpp
 iostream

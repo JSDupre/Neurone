@@ -65,6 +65,8 @@ using namespace std;
 
      void Network::runSimulation(double Tstop){
      	int TotalNumberOfTimeIncrement(Tstop/TimeIncrement);
+     	cout<<"simulation en cours : "<<endl;
+     	int compteur(0);
      	while (clock_<TotalNumberOfTimeIncrement){
 			for(auto& n:neurones_){ 
 				bool spike(n->update(1));
@@ -80,7 +82,8 @@ using namespace std;
 		}
      }
      
-     std::vector<int> Network::getSpikesVectorForNeuroneAtIndix(unsigned int i){
-		 assert(i<neurones_.size());
-		 return (neurones_[i]->getSpikesTimeInNumberOfTimeIncrement());
+     std::vector<int> Network::getSpikesVectorForNeuroneAtIndix(unsigned int indix){
+		 assert(indix<neurones_.size());
+		 return (neurones_[indix]->getSpikesTimeInNumberOfTimeIncrement());
 	 }
+	 

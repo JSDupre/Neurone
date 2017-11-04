@@ -29,7 +29,7 @@ using namespace std;
 				{
 					static random_device rd;
 					static mt19937 gen(rd());
-					static poisson_distribution<> distribution (NuExt);
+					static poisson_distribution<> distribution (NuExtTimeH);
 					int numberOfExternalSpike(distribution(gen));
 					double externalRandomPart(Je*numberOfExternalSpike);
 					
@@ -69,8 +69,4 @@ using namespace std;
 	double Neurone::getJsentToPostSynapticNeurone() const{
 		if(isExitatory_){return Je;}
 		else{return-Ji;}
-	}
-	
-	int Neurone::getNeuroneID() const{
-		return neurone_ID_;
 	}
