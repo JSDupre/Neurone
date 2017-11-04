@@ -22,16 +22,17 @@ int main() {
 			//writing simulation result for latter analisys
 		ofstream spikeWriting("spikes.txt",ios::trunc);//declaration du stream d'ecriture
 		writeSpikesDataFile(network,spikeWriting,30);
+		cerr<<"ecriture ok"<<endl;
 		
 		return 0;
 	}
 
 void writeSpikesDataFile(Network & network,ofstream& out,unsigned int numberOfNeuronesToRecord)
 {
-	assert(numberOfNeuronesToRecord<=(network.getNeurones()).size());
-	for(unsigned int i(0);i<=numberOfNeuronesToRecord-1;++i){
-		for(unsigned int j(0);j<=((network.getNeurones())[i]->getSpikesTimeInNumberOfTimeIncrement()).size()-1;++j)
-		out<<((network.getNeurones())[i]->getSpikesTimeInNumberOfTimeIncrement()[j])<<"\t"<<i<<"\n";
+	for(unsigned int i(0);i<numberOfNeuronesToRecord;++i){
+		for(unsigned int j(0);j<(network.getSpikesVectorForNeuroneAtIndix(i)).size();++j){
+		out<<network.getSpikesVectorForNeuroneAtIndix(i)[j]<<"\t"<<i<<"\n";
+		}
 	}
 }
 

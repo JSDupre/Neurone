@@ -29,7 +29,7 @@ using namespace std;
 				{
 					static random_device rd;
 					static mt19937 gen(rd());
-					static poisson_distribution<> distribution (Ce*NuExt);
+					static poisson_distribution<> distribution (NuExt);
 					int numberOfExternalSpike(distribution(gen));
 					double externalRandomPart(Je*numberOfExternalSpike);
 					

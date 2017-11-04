@@ -17,7 +17,7 @@ class Network{
   
       ~Network();
       void runSimulation(double Tstop);
-      std::vector<Neurone*> getNeurones();
+      std::vector<int> getSpikesVectorForNeuroneAtIndix(unsigned int i);
  };
 
 #endif

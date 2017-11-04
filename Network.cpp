@@ -16,7 +16,7 @@ using namespace std;
 
 			//creating our neurones
 			int numberOfExitatoryNeurones(numberOfNeurones*exitatoryProportion);
-		for (unsigned int i(0);i<=numberOfNeurones;++i){
+		for (unsigned int i(0);i<numberOfNeurones;++i){ //i start at 0 so < and not <=
 			if(i<numberOfExitatoryNeurones){ //i start at 0 so < and not <=
 				neurones_.push_back(new Neurone(clock,Iexterieur,true,i));
 			}
@@ -25,7 +25,7 @@ using namespace std;
 			}
 		}
 			//creating the connection
-		for (unsigned int i(0);i<=numberOfNeurones;++i){
+		for (unsigned int i(0);i<numberOfNeurones;++i){
 			neurones_[i]->setConnections(createConnectionForANeurone(numberOfNeurones,exitatoryProportion,numberOfExitatoryNeurones-1,
  				exitatoryConnectionProbability,inhibitoryConnectionProbability,i));
 		}
@@ -80,6 +80,7 @@ using namespace std;
 		}
      }
      
-     vector<Neurone*> Network::getNeurones(){
-		 return neurones_;
+     std::vector<int> Network::getSpikesVectorForNeuroneAtIndix(unsigned int i){
+		 assert(i<neurones_.size());
+		 return (neurones_[i]->getSpikesTimeInNumberOfTimeIncrement());
 	 }
