@@ -6,10 +6,12 @@ CMakeFiles/unittest.dir/Network.cpp.o
  /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.cpp
  /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.hpp
  /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
+ gtest/include/gtest/gtest_prod.h
 CMakeFiles/unittest.dir/Neurone.cpp.o
  /home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
  /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.cpp
  /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
+ gtest/include/gtest/gtest_prod.h
 CMakeFiles/unittest.dir/gtest.cpp.o
  /home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
  /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.hpp

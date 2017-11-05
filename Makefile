@@ -125,6 +125,19 @@ Neurone/fast:
 .PHONY : Neurone/fast
 
 #=============================================================================
+# Target rules for targets named doc
+
+# Build rule for target.
+doc: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 doc
+.PHONY : doc
+
+# fast build rule for target.
+doc/fast:
+	$(MAKE) -f CMakeFiles/doc.dir/build.make CMakeFiles/doc.dir/build
+.PHONY : doc/fast
+
+#=============================================================================
 # Target rules for targets named unittest
 
 # Build rule for target.
@@ -273,6 +286,7 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... doc"
 	@echo "... Neurone"
 	@echo "... unittest"
 	@echo "... test"

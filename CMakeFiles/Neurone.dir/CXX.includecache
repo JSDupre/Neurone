@@ -23,8 +23,8 @@ Neurone.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
 vector
 -
-fstream
--
+gtest/gtest_prod.h
+/home/INTRANET/dupre/myfiles/infoBA3/S2/gtest/gtest_prod.h
 
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.cpp
 iostream
@@ -43,6 +43,8 @@ vector
 -
 Constants.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Constants.hpp
+gtest/gtest_prod.h
+/home/INTRANET/dupre/myfiles/infoBA3/S2/gtest/gtest_prod.h
 
 /home/INTRANET/dupre/myfiles/infoBA3/S2/main.cpp
 fstream
@@ -51,4 +53,6 @@ Network.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.hpp
 cassert
 -
+
+gtest/include/gtest/gtest_prod.h
 

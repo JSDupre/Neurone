@@ -1,6 +1,6 @@
 #include "Neurone.hpp"
 #include <vector>
-#include <fstream>
+#include "gtest/gtest_prod.h"
 
 #ifndef NETWORK_H
 #define NETWORK_H
@@ -22,10 +22,9 @@ class Network{
        * @param inhibitoryConnectionProbability the probabity of connection with inhibitory neurons
        * @param NeuroneIndix the indix of the neuron we are creating the connections for
        */
-      std::vector<int> createConnectionForANeurone(unsigned int numberOfNeurones,double exitatoryProportion,
-      	unsigned int indixAfterWichEachNeuroneIsInhibitory,double exitatoryConnectionProbability,
-      	double inhibitoryConnectionProbability,unsigned int NeuroneIndix);
-      	
+      std::vector<unsigned int> createConnectionForANeurone(unsigned int const& numberOfNeurones,double const& exitatoryProportion,
+      double const& exitatoryConnectionProbability,double const& inhibitoryConnectionProbability,unsigned int const& NeuroneIndix);
+      FRIEND_TEST(testNetwork,correctConstruction); //unit testing
    public:
 	   /** \brief constructor for Network
        * 
@@ -35,8 +34,8 @@ class Network{
        * @param inhibitoryConnectionProbability the probabity of connection with inhibitory neurons
        * @param clock the initial clock of the network
        */
-      Network(unsigned int numberOfNeurones,double exitatoryProportion,
-      	double exitatoryConnectionProbability,double inhibitoryConnectionProbability,int clock);
+      Network(unsigned int const& numberOfNeurones,double const& exitatoryProportion,
+      	double const& exitatoryConnectionProbability,double const& inhibitoryConnectionProbability,int const& clock);
       /** \brief destructor for Network
        * 
        * handle the correct memory desallocation and destruction of the neurons of the network
@@ -46,12 +45,12 @@ class Network{
        * 
        * @param Tstop the ending time of the simulation in seconds
        */
-      void runSimulation(double Tstop);
+      void runSimulation(double const& Tstop);
       /** \brief return the spike's times of a certain neuron of the network in a vector
        * 
        * @param indix the indix of the neuron
        */
-      std::vector<int> getSpikesVectorForNeuroneAtIndix(unsigned int indix);
+      std::vector<int> getSpikesVectorForNeuroneAtIndix(unsigned int const& indix)const;
  };
 
 #endif

@@ -1,0 +1,104 @@
+\hypertarget{classNetwork}{\section{Network Class Reference}
+\label{classNetwork}\index{Network@{Network}}
+}
+
+
+{\ttfamily \#include $<$Network.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNetwork_a50ca39356b9602a77a03c1c75136715f}{Network} (unsigned int number\-Of\-Neurones, double exitatory\-Proportion, double exitatory\-Connection\-Probability, double inhibitory\-Connection\-Probability, int clock)
+\begin{DoxyCompactList}\small\item\em constructor for \hyperlink{classNetwork}{Network} \end{DoxyCompactList}\item 
+\hyperlink{classNetwork_a7a4e19cdb4bf0c7ecf82baa643831492}{$\sim$\-Network} ()
+\begin{DoxyCompactList}\small\item\em destructor for \hyperlink{classNetwork}{Network} \end{DoxyCompactList}\item 
+void \hyperlink{classNetwork_ab8511393231eb31d5ea30d111f74c9ab}{run\-Simulation} (double Tstop)
+\begin{DoxyCompactList}\small\item\em run the simulation of the network during Tstop seconds according to the constants in \char`\"{}\-Constants.\-hpp\char`\"{} \end{DoxyCompactList}\item 
+std\-::vector$<$ int $>$ \hyperlink{classNetwork_a37f408d5ff245c828e8fe74a4d7fdefd}{get\-Spikes\-Vector\-For\-Neurone\-At\-Indix} (unsigned int indix)
+\begin{DoxyCompactList}\small\item\em return the spike's times of a certain neuron of the network in a vector \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class for a network of neurons. create all the neurons that it contain and is able to run a simulation according to the constants in \char`\"{}\-Constants.\-hpp\char`\"{} 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classNetwork_a50ca39356b9602a77a03c1c75136715f}{\index{Network@{Network}!Network@{Network}}
+\index{Network@{Network}!Network@{Network}}
+\subsubsection[{Network}]{\setlength{\rightskip}{0pt plus 5cm}Network\-::\-Network (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{number\-Of\-Neurones, }
+\item[{double}]{exitatory\-Proportion, }
+\item[{double}]{exitatory\-Connection\-Probability, }
+\item[{double}]{inhibitory\-Connection\-Probability, }
+\item[{int}]{clock}
+\end{DoxyParamCaption}
+)}}\label{classNetwork_a50ca39356b9602a77a03c1c75136715f}
+
+
+constructor for \hyperlink{classNetwork}{Network} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em number\-Of\-Neurones} & the number of neurons in the network \\
+\hline
+{\em exitatory\-Proportion} & the proportion of excitatory neurons in the network \\
+\hline
+{\em exitatory\-Connection\-Probability} & the probabity of connection with excitatory neurons \\
+\hline
+{\em inhibitory\-Connection\-Probability} & the probabity of connection with inhibitory neurons \\
+\hline
+{\em clock} & the initial clock of the network \\
+\hline
+\end{DoxyParams}
+\hypertarget{classNetwork_a7a4e19cdb4bf0c7ecf82baa643831492}{\index{Network@{Network}!$\sim$\-Network@{$\sim$\-Network}}
+\index{$\sim$\-Network@{$\sim$\-Network}!Network@{Network}}
+\subsubsection[{$\sim$\-Network}]{\setlength{\rightskip}{0pt plus 5cm}Network\-::$\sim$\-Network (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classNetwork_a7a4e19cdb4bf0c7ecf82baa643831492}
+
+
+destructor for \hyperlink{classNetwork}{Network} 
+
+handle the correct memory desallocation and destruction of the neurons of the network 
+
+\subsection{Member Function Documentation}
+\hypertarget{classNetwork_a37f408d5ff245c828e8fe74a4d7fdefd}{\index{Network@{Network}!get\-Spikes\-Vector\-For\-Neurone\-At\-Indix@{get\-Spikes\-Vector\-For\-Neurone\-At\-Indix}}
+\index{get\-Spikes\-Vector\-For\-Neurone\-At\-Indix@{get\-Spikes\-Vector\-For\-Neurone\-At\-Indix}!Network@{Network}}
+\subsubsection[{get\-Spikes\-Vector\-For\-Neurone\-At\-Indix}]{\setlength{\rightskip}{0pt plus 5cm}std\-::vector$<$ int $>$ Network\-::get\-Spikes\-Vector\-For\-Neurone\-At\-Indix (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{indix}
+\end{DoxyParamCaption}
+)}}\label{classNetwork_a37f408d5ff245c828e8fe74a4d7fdefd}
+
+
+return the spike's times of a certain neuron of the network in a vector 
+
+
+\begin{DoxyParams}{Parameters}
+{\em indix} & the indix of the neuron \\
+\hline
+\end{DoxyParams}
+\hypertarget{classNetwork_ab8511393231eb31d5ea30d111f74c9ab}{\index{Network@{Network}!run\-Simulation@{run\-Simulation}}
+\index{run\-Simulation@{run\-Simulation}!Network@{Network}}
+\subsubsection[{run\-Simulation}]{\setlength{\rightskip}{0pt plus 5cm}void Network\-::run\-Simulation (
+\begin{DoxyParamCaption}
+\item[{double}]{Tstop}
+\end{DoxyParamCaption}
+)}}\label{classNetwork_ab8511393231eb31d5ea30d111f74c9ab}
+
+
+run the simulation of the network during Tstop seconds according to the constants in \char`\"{}\-Constants.\-hpp\char`\"{} 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Tstop} & the ending time of the simulation in seconds \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Network.\-hpp\item 
+Network.\-cpp\end{DoxyCompactItemize}

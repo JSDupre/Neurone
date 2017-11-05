@@ -1,0 +1,73 @@
+\hypertarget{classNeurone}{\section{Neurone Class Reference}
+\label{classNeurone}\index{Neurone@{Neurone}}
+}
+
+
+{\ttfamily \#include $<$Neurone.\-hpp$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classNeurone_a32dca789543f50744339d5826e210a83}{Neurone} (int clock, double Iext, bool is\-Exitatory, int neurone\-I\-D)
+\begin{DoxyCompactList}\small\item\em construct a neuron \end{DoxyCompactList}\item 
+\hypertarget{classNeurone_aa6dac345fd1ab43f5aa92034c64abec8}{bool {\bfseries update} (unsigned int const \&Number\-Of\-Time\-Increment)}\label{classNeurone_aa6dac345fd1ab43f5aa92034c64abec8}
+
+\item 
+\hypertarget{classNeurone_a47461fff747136e1569184fe5ebcd4c9}{double {\bfseries get\-Membrane\-Potential} () const }\label{classNeurone_a47461fff747136e1569184fe5ebcd4c9}
+
+\item 
+\hypertarget{classNeurone_a99d7af7ba00e6ad898330d15b38832db}{std\-::vector$<$ int $>$ {\bfseries get\-Spikes\-Time\-In\-Number\-Of\-Time\-Increment} () const }\label{classNeurone_a99d7af7ba00e6ad898330d15b38832db}
+
+\item 
+\hypertarget{classNeurone_a429cd32d2eccf21ef27ee628cb5c1e66}{std\-::vector$<$ int $>$ {\bfseries get\-Connections} () const }\label{classNeurone_a429cd32d2eccf21ef27ee628cb5c1e66}
+
+\item 
+\hypertarget{classNeurone_a47e61e44ec11f4f3429f8d4c014c9a91}{void {\bfseries set\-Connections} (std\-::vector$<$ int $>$ const \&connections)}\label{classNeurone_a47e61e44ec11f4f3429f8d4c014c9a91}
+
+\item 
+\hypertarget{classNeurone_af514ca0ec50cb282c8431ff17832123c}{void {\bfseries receive} (int clock\-Plus\-Delay, double J)}\label{classNeurone_af514ca0ec50cb282c8431ff17832123c}
+
+\item 
+\hypertarget{classNeurone_a2e7773f8f6fef5019e22851fbfada0fb}{std\-::vector$<$ double $>$ {\bfseries get\-Ring\-Buffer} () const }\label{classNeurone_a2e7773f8f6fef5019e22851fbfada0fb}
+
+\item 
+\hypertarget{classNeurone_ac7746b1b83936b6e665aee632da0a131}{double {\bfseries get\-Jsent\-To\-Post\-Synaptic\-Neurone} () const }\label{classNeurone_ac7746b1b83936b6e665aee632da0a131}
+
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+class for a neuron 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classNeurone_a32dca789543f50744339d5826e210a83}{\index{Neurone@{Neurone}!Neurone@{Neurone}}
+\index{Neurone@{Neurone}!Neurone@{Neurone}}
+\subsubsection[{Neurone}]{\setlength{\rightskip}{0pt plus 5cm}Neurone\-::\-Neurone (
+\begin{DoxyParamCaption}
+\item[{int}]{clock, }
+\item[{double}]{Iext, }
+\item[{bool}]{is\-Exitatory, }
+\item[{int}]{neurone\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{classNeurone_a32dca789543f50744339d5826e210a83}
+
+
+construct a neuron 
+
+
+\begin{DoxyParams}{Parameters}
+{\em clock} & local clock for the neuron \\
+\hline
+{\em Iext} & intensity comming from the outside of the brain \\
+\hline
+{\em is\-Exitatory} & boolean true if the neuron is excitatory false if inhibitory \\
+\hline
+{\em neurone\-I\-D} & the neuron I\-D \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Neurone.\-hpp\item 
+Neurone.\-cpp\end{DoxyCompactItemize}

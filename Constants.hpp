@@ -12,7 +12,7 @@
 	const int NumberOfInhibitoryNeurone(2500);
 	const double ProbabilityOfConnection(0.1);
 	const double g(5);//  Ji/Je ,see paper
-	const int D(15); //delay in number of time increment
+	const double D(1.5); //delay (ms)
 	const double Je(0.1); //connection strenght, constant for each connection for simplification
 	const double Eta(2);
 

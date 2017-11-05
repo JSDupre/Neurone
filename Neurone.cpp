@@ -4,9 +4,9 @@
 #include <random>
 using namespace std;
 
-	Neurone::Neurone (int clock,double Iext,bool isExitatory,int neuroneID)
-	:spikeRingBuffer_(DelayInTimeIncrement+1,0.0),membranePotential_(STANDART_POTENTIAL)
-	,localClock_(clock),Iext_(Iext),isExitatory_(isExitatory),neurone_ID_(neuroneID){}
+	Neurone::Neurone (int const& clock,double const& Iext,bool const& isExitatory,unsigned int const& neuroneID,double const& ExternalRandomSpikesFrequencyPerTimeStep)
+	:spikeRingBuffer_(DelayInTimeIncrement+1,0.0),membranePotential_(STANDART_POTENTIAL),localClock_(clock),Iext_(Iext)
+	,isExitatory_(isExitatory),neurone_ID_(neuroneID),ExternalRandomSpikesFrequencyPerTimeStep_(ExternalRandomSpikesFrequencyPerTimeStep){}
 	
 	bool Neurone::update(unsigned int const& NumberOfTimeIncrement){
 		bool spike(false);
@@ -16,8 +16,9 @@ using namespace std;
 				{
 					//1 we store the spike time
 					SpikesTimeInNumberOfTimeIncrement_.push_back(localClock_);
-					//2 the neurone goes refractory: the potential fall down to 0
+					//2 the neurone goes refractory: the potential fall down to Constants::RefractoryPotential
 					membranePotential_=RefractoryPotential;
+					//the neuron has spiked
 					spike=true;
 				} 
 				
@@ -29,9 +30,9 @@ using namespace std;
 				{
 					static random_device rd;
 					static mt19937 gen(rd());
-					static poisson_distribution<> distribution (NuExtTimeH);
+					static poisson_distribution<> distribution (ExternalRandomSpikesFrequencyPerTimeStep_);
 					int numberOfExternalSpike(distribution(gen));
-					double externalRandomPart(Je*numberOfExternalSpike);
+					double externalRandomPart(Je*(double)numberOfExternalSpike);
 					
 					double decayingPart(membranePotential_*R1);
 					double externalCurrentPart(Iext_*R2);
@@ -52,19 +53,19 @@ using namespace std;
 	std::vector<int> Neurone::getSpikesTimeInNumberOfTimeIncrement() const{
 		return SpikesTimeInNumberOfTimeIncrement_;
 	}
-	vector<int> Neurone::getConnections() const{
+	vector<unsigned int> Neurone::getConnections() const{
 		return connections_;
 	}
-	void Neurone::setConnections (vector<int> const& connections){
+	void Neurone::setConnections (vector<unsigned int> const& connections){
 		connections_=connections;
 	}
-	void Neurone::receive(int clockPlusDelay,double J){
+	void Neurone::receive(int const& clockPlusDelay,double const& J){
 		size_t storageIndex(clockPlusDelay % spikeRingBuffer_.size());
 		spikeRingBuffer_[storageIndex]+=J;
 	}
-	vector<double> Neurone::getRingBuffer() const{
+	/*vector<double> Neurone::getRingBuffer() const{
 		return spikeRingBuffer_;
-	}
+	}*/
 
 	double Neurone::getJsentToPostSynapticNeurone() const{
 		if(isExitatory_){return Je;}

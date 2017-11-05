@@ -1,3 +1,4 @@
+/home/INTRANET/dupre/myfiles/infoBA3/S2/CMakeFiles/doc.dir
 /home/INTRANET/dupre/myfiles/infoBA3/S2/gtest/CMakeFiles/gtest.dir
 /home/INTRANET/dupre/myfiles/infoBA3/S2/CMakeFiles/Neurone.dir
 /home/INTRANET/dupre/myfiles/infoBA3/S2/gtest/CMakeFiles/gtest_main.dir
