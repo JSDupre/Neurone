@@ -30,7 +30,7 @@ using namespace std;
 				{
 					static random_device rd;
 					static mt19937 gen(rd());
-					static poisson_distribution<> distribution (ExternalRandomSpikesFrequencyPerTimeStep_);
+					poisson_distribution<> distribution (ExternalRandomSpikesFrequencyPerTimeStep_);
 					int numberOfExternalSpike(distribution(gen));
 					double externalRandomPart(Je*(double)numberOfExternalSpike);
 					

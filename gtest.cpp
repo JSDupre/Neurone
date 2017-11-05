@@ -53,18 +53,16 @@ TEST(testNetwork,correctConstruction){
 	EXPECT_TRUE((network0.neurones_).size()==0);
 	Network network1 (2,1,1,0,0);
 	cout<<"2 exitatory neurons with each other connected"<<endl;
-	cerr<<"taille "<<network1.neurones_[0]->getConnections().size()<<endl;
 	EXPECT_TRUE(network1.neurones_[0]->getConnections().size()==2);
 	EXPECT_TRUE(network1.neurones_[1]->getConnections().size()==2);
 	EXPECT_TRUE(network1.neurones_[0]->getJsentToPostSynapticNeurone()==Je);
 	EXPECT_TRUE(network1.neurones_[1]->getJsentToPostSynapticNeurone()==Je);
-	cerr<<"test exitatory"<<endl;
 	Network network2 (4,0.5,0.5,0.5,0);
 	cout<<"2 exitatory and 2 inhibitory neurons each connected to one exitatory and one inhibitory"<<endl;
 	EXPECT_TRUE(network2.neurones_[0]->getJsentToPostSynapticNeurone()==Je);//the first 2 neurons are exitatory
-	EXPECT_TRUE(network2.neurones_[0]->getJsentToPostSynapticNeurone()==Je);
-	EXPECT_TRUE(network2.neurones_[0]->getJsentToPostSynapticNeurone()==-Ji);
-	EXPECT_TRUE(network2.neurones_[0]->getJsentToPostSynapticNeurone()==-Ji);
+	EXPECT_TRUE(network2.neurones_[1]->getJsentToPostSynapticNeurone()==Je);
+	EXPECT_TRUE(network2.neurones_[2]->getJsentToPostSynapticNeurone()==-Ji);
+	EXPECT_TRUE(network2.neurones_[3]->getJsentToPostSynapticNeurone()==-Ji);
 	EXPECT_TRUE(network2.neurones_[0]->getConnections().size()==2);
 	EXPECT_TRUE(network2.neurones_[1]->getConnections().size()==2);
 	EXPECT_TRUE(network2.neurones_[2]->getConnections().size()==2);
@@ -74,16 +72,14 @@ TEST(testNetwork,correctConstruction){
 		EXPECT_TRUE(network2.neurones_[(network2.neurones_[0]->getConnections()[1])]->getJsentToPostSynapticNeurone()==-Ji);
 	}else {
 		EXPECT_TRUE(network2.neurones_[(network2.neurones_[0]->getConnections()[1])]->getJsentToPostSynapticNeurone()==Je);
-	}//a faire les autres
+	}
+	
+	if(network2.neurones_[(network2.neurones_[2]->getConnections()[0])]->getJsentToPostSynapticNeurone()==Je)//if the first neuron is exitatory
+	{
+		EXPECT_TRUE(network2.neurones_[(network2.neurones_[2]->getConnections()[1])]->getJsentToPostSynapticNeurone()==-Ji);
+	}else {
+		EXPECT_TRUE(network2.neurones_[(network2.neurones_[2]->getConnections()[1])]->getJsentToPostSynapticNeurone()==Je);
+	}
+	
 }
 	//for further test we will see if the graph are correct 
-/*
-TEST(testNetwork,exitatoryNetwork){
-	EXPECT_TRUE(Iexterieur==0.0);
-	cout<<"now Iext=0.0 but there is exitatory spike comming from the rest of the brain"<<endl;
-	Network network (2,1,0,1,0);
-	cout<<"network with 2 inhibitory neurons"<<endl;
-	network.runSimualtion(1);
-	cout<<"we run the network for 1s"<<endl;
-	EXPECT_TRUE
-}*/

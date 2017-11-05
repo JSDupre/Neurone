@@ -15,6 +15,10 @@ Network.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.hpp
 random
 -
+string
+-
+fstream
+-
 cassert
 -
 
@@ -22,6 +26,8 @@ cassert
 Neurone.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
 vector
+-
+string
 -
 gtest/gtest_prod.h
 /home/INTRANET/dupre/myfiles/infoBA3/S2/gtest/gtest_prod.h

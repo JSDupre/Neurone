@@ -1,5 +1,6 @@
 #include "Neurone.hpp"
 #include <vector>
+#include <string>
 #include "gtest/gtest_prod.h"
 
 #ifndef NETWORK_H
@@ -51,6 +52,8 @@ class Network{
        * @param indix the indix of the neuron
        */
       std::vector<int> getSpikesVectorForNeuroneAtIndix(unsigned int const& indix)const;
+      
+      void writeSpikesDataFile(std::string const& fileName) const;
  };
 
 #endif

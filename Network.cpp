@@ -1,5 +1,7 @@
 #include "Network.hpp"
 #include <random>
+#include <string>
+#include <fstream>
 
 //#define NDEBUG
 #include <cassert>
@@ -16,9 +18,7 @@ using namespace std;
 		
 			//creating our neurones
 			int numberOfExitatoryNeurones(numberOfNeurones*exitatoryProportion);
-			if(exitatoryConnectionProbability==0.5){
-			cerr<<"numberOfExitatoryNeurones "<<numberOfExitatoryNeurones<<endl;
-		}
+			
 		for (unsigned int i(0);i<numberOfNeurones;++i){ //i start at 0 so < and not <=
 			if(i<numberOfExitatoryNeurones){ //i start at 0 so < and not <=
 				neurones_.push_back(new Neurone(clock,Iexterieur,true,i));
@@ -27,16 +27,10 @@ using namespace std;
 				neurones_.push_back(new Neurone(clock,Iexterieur,false,i));
 			}
 		}
-		if(exitatoryConnectionProbability==0.5){
-			cerr<<"creation enurones ok"<<endl;
-		}
 			//creating the connection
 		for (unsigned int i(0);i<numberOfNeurones;++i){
 			neurones_[i]->setConnections(createConnectionForANeurone(numberOfNeurones,exitatoryProportion,
  				exitatoryConnectionProbability,inhibitoryConnectionProbability,i));
- 				if(exitatoryConnectionProbability==0.5){
-			cerr<<" conn pour neuonr "<<i<<" ok "<<endl;
-		}
 		}
 	}
 
@@ -46,47 +40,25 @@ using namespace std;
 			unsigned int indixAfterWichEachNeuroneIsInhibitory(numberOfNeurones*exitatoryProportion-1);
 			//generation aléatoire
 			static random_device rd;
-			static mt19937 gen(rd());if(exitatoryConnectionProbability==0.5){
-			cerr<<"generation connection : debut "<<endl;
-		}
+			static mt19937 gen(rd());
 
 			//uniforme sur les excitatoires
-			static std::uniform_int_distribution<int> distributionEx(0,indixAfterWichEachNeuroneIsInhibitory);
-			int numberOfExitatoryNeuronesConnection (numberOfNeurones*exitatoryConnectionProbability);
+			std::uniform_int_distribution<int> distributionEx(0,indixAfterWichEachNeuroneIsInhibitory);
+			int numberOfExitatoryNeuronesConnection (numberOfNeurones*exitatoryProportion*exitatoryConnectionProbability);
 			for(unsigned int i(0);i<numberOfExitatoryNeuronesConnection;++i){
 				int indix = distributionEx(gen);
 				connections.push_back(indix);
 			}
-			if(exitatoryConnectionProbability==0.5){
-			cerr<<"exi ok "<<endl;
-		}
 
 			//uniforme sur les inhib
-			static std::uniform_int_distribution<> distributionIn(indixAfterWichEachNeuroneIsInhibitory+1,numberOfNeurones-1);
-			if(exitatoryConnectionProbability==0.5){
-			cerr<<"debut neurons possible : "<<indixAfterWichEachNeuroneIsInhibitory+1<<endl;
-		}
-		if(exitatoryConnectionProbability==0.5){
-			cerr<<"fin neurons possible : "<<numberOfNeurones-1<<endl;
-		}
+			std::uniform_int_distribution<> distributionIn(indixAfterWichEachNeuroneIsInhibitory+1,numberOfNeurones-1);
 			//static std::uniform_int_distribution<> distributionIn(0,(numberOfNeurones-1)-(indixAfterWichEachNeuroneIsInhibitory+1));
-			int numberOfInhibitoryNeuronesConnection (numberOfNeurones*inhibitoryConnectionProbability);
-			if(exitatoryConnectionProbability==0.5){
-			cerr<<"numberOfInhibitoryNeuronesConnection "<<numberOfInhibitoryNeuronesConnection<<endl;
-		}
+			int numberOfInhibitoryNeuronesConnection ((numberOfNeurones-exitatoryProportion*numberOfNeurones)*inhibitoryConnectionProbability);
 			for(unsigned int i(0);i<numberOfInhibitoryNeuronesConnection ;++i){
-				if(exitatoryConnectionProbability==0.5){
-			cerr<<"nueuron num "<<i<<endl;
-		}
-				int indix(distributionIn(gen));//+(indixAfterWichEachNeuroneIsInhibitory+1);
-				if(exitatoryConnectionProbability==0.5){
-			cerr<<"indix "<<indix<<endl;
-		}
+				int indix(distributionIn(gen));
 				connections.push_back(indix);
 			}
-			if(exitatoryConnectionProbability==0.5){
-			cerr<<"exi ok "<<endl;
-		}
+			
 			return connections;
 	}
 
@@ -99,9 +71,13 @@ using namespace std;
 
      void Network::runSimulation(double const& Tstop){
      	int TotalNumberOfTimeIncrement(Tstop/TimeIncrement);
-     	cout<<"simulation en cours : "<<endl;
-     	int compteur(0);
+     	cout<<"simulation running ... "<<endl;
+     	int OnePercent(0.01*TotalNumberOfTimeIncrement);
      	while (clock_<TotalNumberOfTimeIncrement){
+			if(clock_%OnePercent==0){
+				cout<<(double)clock_*100/(double)TotalNumberOfTimeIncrement<<"%"<<flush;
+				cerr<<"\r";
+			}
 			for(auto& n:neurones_){ 
 				bool spike(n->update(1));
 				if(spike){
@@ -120,4 +96,15 @@ using namespace std;
 		 assert(indix<neurones_.size());
 		 return (neurones_[indix]->getSpikesTimeInNumberOfTimeIncrement());
 	 }
+	 
+	 void Network::writeSpikesDataFile(string const& fileName) const
+{
+	ofstream out(fileName,ios::trunc); //declaration stream d'ecriture
+	for(unsigned int i(0);i<numberOfNeuronsToRecord;++i){
+		for(unsigned int j(0);j<(neurones_[i]->getSpikesTimeInNumberOfTimeIncrement()).size();++j){
+		out<<neurones_[i]->getSpikesTimeInNumberOfTimeIncrement()[j]*0.001<<"\t"<<i<<"\n"; //the 0.001 is to adjust the graph to the settings of the web application wich draw
+																				// the graph in wich unit are second
+		}
+	}
+}
 	 

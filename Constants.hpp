@@ -6,15 +6,18 @@
 	const double TimeIncrement(0.1);//ms
 	const double C(1.0);//ms/ohm
 	const double STANDART_POTENTIAL(0.0);//mV
-	const double RefractoryTime(1);//ms (2 normalement)
+	const double RefractoryTime(2);//ms 
 	const double RefractoryPotential(10.0);//mV
 	const int NumberOfExitatoryNeurone(10000);
 	const int NumberOfInhibitoryNeurone(2500);
 	const double ProbabilityOfConnection(0.1);
-	const double g(5);//  Ji/Je ,see paper
+	const double g(4.5);//  Ji/Je ,see paper
 	const double D(1.5); //delay (ms)
 	const double Je(0.1); //connection strenght, constant for each connection for simplification
-	const double Eta(2);
+	const double Eta(0.9);
+	
+	//for graph procuction
+	const int numberOfNeuronsToRecord(100);
 
 		//Precomputation of constants depending the previous ones to avoid useless operation
 	const double NeuroneResistance(Tau/C);
