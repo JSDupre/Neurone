@@ -4,6 +4,9 @@
 #include <random>
 using namespace std;
 
+#define NDEBUG
+#include <cassert>
+
 	Neurone::Neurone (int const& clock,double const& Iext,bool const& isExitatory,unsigned int const& neuroneID,double const& ExternalRandomSpikesFrequencyPerTimeStep)
 	:spikeRingBuffer_(DelayInTimeIncrement+1,0.0),membranePotential_(STANDART_POTENTIAL),localClock_(clock),Iext_(Iext)
 	,isExitatory_(isExitatory),neurone_ID_(neuroneID),ExternalRandomSpikesFrequencyPerTimeStep_(ExternalRandomSpikesFrequencyPerTimeStep){}
@@ -32,6 +35,7 @@ using namespace std;
 					static mt19937 gen(rd());
 					poisson_distribution<> distribution (ExternalRandomSpikesFrequencyPerTimeStep_);
 					int numberOfExternalSpike(distribution(gen));
+					assert(numberOfExternalSpike>=0);
 					double externalRandomPart(Je*(double)numberOfExternalSpike);
 					
 					double decayingPart(membranePotential_*R1);
@@ -60,13 +64,10 @@ using namespace std;
 		connections_=connections;
 	}
 	void Neurone::receive(int const& clockPlusDelay,double const& J){
+		assert(clockPlusDelay>localClock_);
 		size_t storageIndex(clockPlusDelay % spikeRingBuffer_.size());
 		spikeRingBuffer_[storageIndex]+=J;
 	}
-	/*vector<double> Neurone::getRingBuffer() const{
-		return spikeRingBuffer_;
-	}*/
-
 	double Neurone::getJsentToPostSynapticNeurone() const{
 		if(isExitatory_){return Je;}
 		else{return-Ji;}

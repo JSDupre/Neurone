@@ -11,6 +11,8 @@ cmath
 -
 
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.cpp
+iostream
+-
 Network.hpp
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Network.hpp
 random
@@ -41,10 +43,10 @@ cmath
 -
 random
 -
+cassert
+-
 
 /home/INTRANET/dupre/myfiles/infoBA3/S2/Neurone.hpp
-iostream
--
 vector
 -
 Constants.hpp

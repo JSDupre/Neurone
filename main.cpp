@@ -1,8 +1,7 @@
+#include <iostream>
 #include <fstream>
 #include "Network.hpp"
 
-//#define NDEBUG
-#include  <cassert>
 using namespace std;
 /** \brief read the entry (a double expected) on the terminal
  */

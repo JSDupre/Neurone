@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: Network.hpp Source File</title>
+<title>Neuron Network: Network.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,8 +22,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Neuron Network
    </div>
+   <div id="projectbrief">Simulate a network of 12500 neurons,as described in the Brunel&#39;s paper &#39;Dynamics of Sparsely connected networks of excitatory and inhibitory spiking neurons&#39;</div>
   </td>
  </tr>
  </tbody>
@@ -37,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -68,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -84,38 +86,40 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="contents">
 <div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &quot;Neurone.hpp&quot;</span></div>
 <div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;fstream&gt;</span></div>
-<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
-<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef NETWORK_H</span></div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NETWORK_H</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classNetwork.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNetwork.html">Network</a>{</div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;   <span class="keyword">private</span>: </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;      std::vector&lt;Neurone*&gt; neurones_; </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      <span class="keywordtype">int</span> clock_;</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;      std::vector&lt;int&gt; createConnectionForANeurone(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numberOfNeurones,<span class="keywordtype">double</span> exitatoryProportion,</div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;        <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> indixAfterWichEachNeuroneIsInhibitory,<span class="keywordtype">double</span> exitatoryConnectionProbability,</div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;        <span class="keywordtype">double</span> inhibitoryConnectionProbability,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> NeuroneIndix);</div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;        </div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &lt;string&gt;</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &quot;gtest/gtest_prod.h&quot;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;</div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#ifndef NETWORK_H</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NETWORK_H</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00012"></a><span class="lineno"><a class="line" href="classNetwork.html">   12</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNetwork.html">Network</a>{</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;   <span class="keyword">private</span>: </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;      std::vector&lt;Neurone*&gt; neurones_; </div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;      <span class="keywordtype">int</span> clock_;</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;      std::vector&lt;unsigned int&gt; createConnectionForANeurone(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span>&amp; numberOfNeurones,<span class="keywordtype">double</span> <span class="keyword">const</span>&amp; exitatoryProportion,</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;      <span class="keywordtype">double</span> <span class="keyword">const</span>&amp; exitatoryConnectionProbability,<span class="keywordtype">double</span> <span class="keyword">const</span>&amp; inhibitoryConnectionProbability,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span>&amp; NeuroneIndix);</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;      FRIEND_TEST(testNetwork,correctConstruction); <span class="comment">//unit testing</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;   <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <a class="code" href="classNetwork.html#a50ca39356b9602a77a03c1c75136715f">Network</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> numberOfNeurones,<span class="keywordtype">double</span> exitatoryProportion,</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">double</span> exitatoryConnectionProbability,<span class="keywordtype">double</span> inhibitoryConnectionProbability,<span class="keywordtype">int</span> clock);</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;      <a class="code" href="classNetwork.html#a021c9e1c75321f97fe10ff96bad0e1c8">Network</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span>&amp; numberOfNeurones,<span class="keywordtype">double</span> <span class="keyword">const</span>&amp; exitatoryProportion,</div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;        <span class="keywordtype">double</span> <span class="keyword">const</span>&amp; exitatoryConnectionProbability,<span class="keywordtype">double</span> <span class="keyword">const</span>&amp; inhibitoryConnectionProbability,<span class="keywordtype">int</span> <span class="keyword">const</span>&amp; clock);</div>
 <div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;      <a class="code" href="classNetwork.html#a7a4e19cdb4bf0c7ecf82baa643831492">~Network</a>();</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classNetwork.html#ab8511393231eb31d5ea30d111f74c9ab">runSimulation</a>(<span class="keywordtype">double</span> Tstop);</div>
-<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      std::vector&lt;int&gt; <a class="code" href="classNetwork.html#a37f408d5ff245c828e8fe74a4d7fdefd">getSpikesVectorForNeuroneAtIndix</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> indix);</div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160; };</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classNetwork_html_a50ca39356b9602a77a03c1c75136715f"><div class="ttname"><a href="classNetwork.html#a50ca39356b9602a77a03c1c75136715f">Network::Network</a></div><div class="ttdeci">Network(unsigned int numberOfNeurones, double exitatoryProportion, double exitatoryConnectionProbability, double inhibitoryConnectionProbability, int clock)</div><div class="ttdoc">constructor for Network </div><div class="ttdef"><b>Definition:</b> Network.cpp:9</div></div>
-<div class="ttc" id="classNetwork_html_ab8511393231eb31d5ea30d111f74c9ab"><div class="ttname"><a href="classNetwork.html#ab8511393231eb31d5ea30d111f74c9ab">Network::runSimulation</a></div><div class="ttdeci">void runSimulation(double Tstop)</div><div class="ttdoc">run the simulation of the network during Tstop seconds according to the constants in &quot;Constants...</div><div class="ttdef"><b>Definition:</b> Network.cpp:66</div></div>
-<div class="ttc" id="classNetwork_html"><div class="ttname"><a href="classNetwork.html">Network</a></div><div class="ttdef"><b>Definition:</b> Network.hpp:11</div></div>
-<div class="ttc" id="classNetwork_html_a7a4e19cdb4bf0c7ecf82baa643831492"><div class="ttname"><a href="classNetwork.html#a7a4e19cdb4bf0c7ecf82baa643831492">Network::~Network</a></div><div class="ttdeci">~Network()</div><div class="ttdoc">destructor for Network </div><div class="ttdef"><b>Definition:</b> Network.cpp:59</div></div>
-<div class="ttc" id="classNetwork_html_a37f408d5ff245c828e8fe74a4d7fdefd"><div class="ttname"><a href="classNetwork.html#a37f408d5ff245c828e8fe74a4d7fdefd">Network::getSpikesVectorForNeuroneAtIndix</a></div><div class="ttdeci">std::vector&lt; int &gt; getSpikesVectorForNeuroneAtIndix(unsigned int indix)</div><div class="ttdoc">return the spike&#39;s times of a certain neuron of the network in a vector </div><div class="ttdef"><b>Definition:</b> Network.cpp:85</div></div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;      <span class="keywordtype">void</span> <a class="code" href="classNetwork.html#aee37b42c486581f07111b9346919b1ad">runSimulation</a>(<span class="keywordtype">double</span> <span class="keyword">const</span>&amp; Tstop);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160;      std::vector&lt;int&gt; <a class="code" href="classNetwork.html#aab75966da4cbca7c227f98e58a4ac3a5">getSpikesVectorForNeuroneAtIndix</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span>&amp; indix)<span class="keyword">const</span>;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;      </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;      <span class="keywordtype">void</span> writeSpikesDataFile(std::string <span class="keyword">const</span>&amp; fileName) <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; };</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classNetwork_html_aee37b42c486581f07111b9346919b1ad"><div class="ttname"><a href="classNetwork.html#aee37b42c486581f07111b9346919b1ad">Network::runSimulation</a></div><div class="ttdeci">void runSimulation(double const &amp;Tstop)</div><div class="ttdoc">run the simulation of the network during Tstop seconds according to the constants in &quot;Constants...</div><div class="ttdef"><b>Definition:</b> Network.cpp:73</div></div>
+<div class="ttc" id="classNetwork_html_aab75966da4cbca7c227f98e58a4ac3a5"><div class="ttname"><a href="classNetwork.html#aab75966da4cbca7c227f98e58a4ac3a5">Network::getSpikesVectorForNeuroneAtIndix</a></div><div class="ttdeci">std::vector&lt; int &gt; getSpikesVectorForNeuroneAtIndix(unsigned int const &amp;indix) const </div><div class="ttdoc">return the spike&#39;s times of a certain neuron of the network in a vector </div><div class="ttdef"><b>Definition:</b> Network.cpp:96</div></div>
+<div class="ttc" id="classNetwork_html"><div class="ttname"><a href="classNetwork.html">Network</a></div><div class="ttdef"><b>Definition:</b> Network.hpp:12</div></div>
+<div class="ttc" id="classNetwork_html_a7a4e19cdb4bf0c7ecf82baa643831492"><div class="ttname"><a href="classNetwork.html#a7a4e19cdb4bf0c7ecf82baa643831492">Network::~Network</a></div><div class="ttdeci">~Network()</div><div class="ttdoc">destructor for Network </div><div class="ttdef"><b>Definition:</b> Network.cpp:66</div></div>
+<div class="ttc" id="classNetwork_html_a021c9e1c75321f97fe10ff96bad0e1c8"><div class="ttname"><a href="classNetwork.html#a021c9e1c75321f97fe10ff96bad0e1c8">Network::Network</a></div><div class="ttdeci">Network(unsigned int const &amp;numberOfNeurones, double const &amp;exitatoryProportion, double const &amp;exitatoryConnectionProbability, double const &amp;inhibitoryConnectionProbability, int const &amp;clock)</div><div class="ttdoc">constructor for Network </div><div class="ttdef"><b>Definition:</b> Network.cpp:12</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 5 2017 13:50:05 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 5 2017 22:01:11 for Neuron Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

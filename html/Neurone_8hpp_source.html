@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: Neurone.hpp Source File</title>
+<title>Neuron Network: Neurone.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,8 +22,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Neuron Network
    </div>
+   <div id="projectbrief">Simulate a network of 12500 neurons,as described in the Brunel&#39;s paper &#39;Dynamics of Sparsely connected networks of excitatory and inhibitory spiking neurons&#39;</div>
   </td>
  </tr>
  </tbody>
@@ -37,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li><a href="annotated.html"><span>Classes</span></a></li>
       <li class="current"><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -68,7 +70,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -82,9 +84,9 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="title">Neurone.hpp</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;iostream&gt;</span></div>
-<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
-<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;Constants.hpp&quot;</span></div>
+<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#include &quot;Constants.hpp&quot;</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno">    3</span>&#160;<span class="preprocessor">#include &quot;gtest/gtest_prod.h&quot;</span></div>
 <div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;</div>
 <div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#ifndef NEURONE_H</span></div>
 <div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define NEURONE_H</span></div>
@@ -92,36 +94,49 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <div class="line"><a name="l00011"></a><span class="lineno"><a class="line" href="classNeurone.html">   11</a></span>&#160;<span class="keyword">class </span><a class="code" href="classNeurone.html">Neurone</a> {</div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;    <span class="keyword">private</span>:</div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;    </div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">int</span> neurone_ID_;    </div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> neurone_ID_;   </div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    <span class="keywordtype">double</span> membranePotential_; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;    std::vector&lt;int&gt; SpikesTimeInNumberOfTimeIncrement_; </div>
 <div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;    <span class="keywordtype">int</span> localClock_;                                     </div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::vector&lt;int&gt; connections_;               </div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;    std::vector&lt;unsigned int&gt; connections_;               </div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;    std::vector&lt;double&gt; spikeRingBuffer_;            </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;    <span class="keywordtype">double</span> Iext_;                        </div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <span class="keywordtype">bool</span> isExitatory_;              </div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;</div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    <span class="keyword">public</span>:</div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;    <a class="code" href="classNeurone.html#a32dca789543f50744339d5826e210a83">Neurone</a> (<span class="keywordtype">int</span> clock,<span class="keywordtype">double</span> Iext,<span class="keywordtype">bool</span> isExitatory, <span class="keywordtype">int</span> neuroneID);</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;    <span class="keywordtype">bool</span> update(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span>&amp; NumberOfTimeIncrement);</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;    <span class="keywordtype">double</span> getMembranePotential() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    std::vector&lt;int&gt; getSpikesTimeInNumberOfTimeIncrement() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    std::vector&lt;int&gt; getConnections() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;    <span class="keywordtype">void</span> setConnections (std::vector&lt;</div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <span class="keywordtype">int</span>&gt; <span class="keyword">const</span>&amp; connections);</div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;    <span class="keywordtype">void</span> receive(<span class="keywordtype">int</span> clockPlusDelay,<span class="keywordtype">double</span> J);</div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;    std::vector&lt;double&gt; getRingBuffer() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">double</span> getJsentToPostSynapticNeurone() <span class="keyword">const</span>;</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    <span class="comment">//int getNeuroneID() const;</span></div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;};</div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="classNeurone_html_a32dca789543f50744339d5826e210a83"><div class="ttname"><a href="classNeurone.html#a32dca789543f50744339d5826e210a83">Neurone::Neurone</a></div><div class="ttdeci">Neurone(int clock, double Iext, bool isExitatory, int neuroneID)</div><div class="ttdoc">construct a neuron </div><div class="ttdef"><b>Definition:</b> Neurone.cpp:7</div></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keywordtype">double</span> ExternalRandomSpikesFrequencyPerTimeStep_; </div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;    FRIEND_TEST(test1Neurone,receivePuttingCorrectValueAtCorrectIndix); <span class="comment">//unit testing</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;    </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;    <span class="keyword">public</span>:</div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;    <a class="code" href="classNeurone.html#a7908c3fab353efd2d2cf2e96f4a18255">Neurone</a> (<span class="keywordtype">int</span> <span class="keyword">const</span>&amp; clock,<span class="keywordtype">double</span> <span class="keyword">const</span>&amp; Iext,<span class="keywordtype">bool</span> <span class="keyword">const</span>&amp; isExitatory,<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span>&amp; neuroneID,<span class="keywordtype">double</span> <span class="keyword">const</span>&amp; ExternalRandomSpikesFrequencyPerTimeStep=NuExtTimeH);</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    </div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">bool</span> <a class="code" href="classNeurone.html#aa6dac345fd1ab43f5aa92034c64abec8">update</a>(<span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> <span class="keyword">const</span>&amp; NumberOfTimeIncrement);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;    </div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classNeurone.html#a47461fff747136e1569184fe5ebcd4c9">getMembranePotential</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;    </div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;    std::vector&lt;int&gt; <a class="code" href="classNeurone.html#a99d7af7ba00e6ad898330d15b38832db">getSpikesTimeInNumberOfTimeIncrement</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    </div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    std::vector&lt;unsigned int&gt; <a class="code" href="classNeurone.html#ababb4cebec2f4437587ec8576e1b9f8c">getConnections</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;    </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNeurone.html#a60b8bf2108296a7ae8be2f7eae29547a">setConnections</a> (std::vector&lt;unsigned int&gt; <span class="keyword">const</span>&amp; connections);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;    </div>
+<div class="line"><a name="l00064"></a><span class="lineno">   64</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="classNeurone.html#abf87a70742b3662bc294d570484d1f59">receive</a>(<span class="keywordtype">int</span> <span class="keyword">const</span>&amp; clockPlusDelay,<span class="keywordtype">double</span> <span class="keyword">const</span>&amp; J);</div>
+<div class="line"><a name="l00065"></a><span class="lineno">   65</span>&#160;    </div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    <span class="keywordtype">double</span> <a class="code" href="classNeurone.html#ac7746b1b83936b6e665aee632da0a131">getJsentToPostSynapticNeurone</a>() <span class="keyword">const</span>;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;};</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="classNeurone_html_a7908c3fab353efd2d2cf2e96f4a18255"><div class="ttname"><a href="classNeurone.html#a7908c3fab353efd2d2cf2e96f4a18255">Neurone::Neurone</a></div><div class="ttdeci">Neurone(int const &amp;clock, double const &amp;Iext, bool const &amp;isExitatory, unsigned int const &amp;neuroneID, double const &amp;ExternalRandomSpikesFrequencyPerTimeStep=NuExtTimeH)</div><div class="ttdoc">construct a neuron </div><div class="ttdef"><b>Definition:</b> Neurone.cpp:10</div></div>
+<div class="ttc" id="classNeurone_html_a47461fff747136e1569184fe5ebcd4c9"><div class="ttname"><a href="classNeurone.html#a47461fff747136e1569184fe5ebcd4c9">Neurone::getMembranePotential</a></div><div class="ttdeci">double getMembranePotential() const </div><div class="ttdoc">return the membrane potential </div><div class="ttdef"><b>Definition:</b> Neurone.cpp:53</div></div>
+<div class="ttc" id="classNeurone_html_abf87a70742b3662bc294d570484d1f59"><div class="ttname"><a href="classNeurone.html#abf87a70742b3662bc294d570484d1f59">Neurone::receive</a></div><div class="ttdeci">void receive(int const &amp;clockPlusDelay, double const &amp;J)</div><div class="ttdoc">store a receiving spike from a pre synaptic neuron it will be computed in the calculus of the membran...</div><div class="ttdef"><b>Definition:</b> Neurone.cpp:66</div></div>
+<div class="ttc" id="classNeurone_html_a99d7af7ba00e6ad898330d15b38832db"><div class="ttname"><a href="classNeurone.html#a99d7af7ba00e6ad898330d15b38832db">Neurone::getSpikesTimeInNumberOfTimeIncrement</a></div><div class="ttdeci">std::vector&lt; int &gt; getSpikesTimeInNumberOfTimeIncrement() const </div><div class="ttdoc">return the neuron&#39;s spikes&#39; times (in number of since the beginning of the simulation) in a vector ...</div><div class="ttdef"><b>Definition:</b> Neurone.cpp:57</div></div>
+<div class="ttc" id="classNeurone_html_a60b8bf2108296a7ae8be2f7eae29547a"><div class="ttname"><a href="classNeurone.html#a60b8bf2108296a7ae8be2f7eae29547a">Neurone::setConnections</a></div><div class="ttdeci">void setConnections(std::vector&lt; unsigned int &gt; const &amp;connections)</div><div class="ttdoc">set the neuron&#39;s connections (ID of the postsynaptic neurons) </div><div class="ttdef"><b>Definition:</b> Neurone.cpp:63</div></div>
+<div class="ttc" id="classNeurone_html_aa6dac345fd1ab43f5aa92034c64abec8"><div class="ttname"><a href="classNeurone.html#aa6dac345fd1ab43f5aa92034c64abec8">Neurone::update</a></div><div class="ttdeci">bool update(unsigned int const &amp;NumberOfTimeIncrement)</div><div class="ttdoc">update a neuron for a certain number of time step return true if the neuron has spiked during the upd...</div><div class="ttdef"><b>Definition:</b> Neurone.cpp:14</div></div>
+<div class="ttc" id="classNeurone_html_ababb4cebec2f4437587ec8576e1b9f8c"><div class="ttname"><a href="classNeurone.html#ababb4cebec2f4437587ec8576e1b9f8c">Neurone::getConnections</a></div><div class="ttdeci">std::vector&lt; unsigned int &gt; getConnections() const </div><div class="ttdoc">return the neuron&#39;s connections (ID of the post synaptic neurons) </div><div class="ttdef"><b>Definition:</b> Neurone.cpp:60</div></div>
+<div class="ttc" id="classNeurone_html_ac7746b1b83936b6e665aee632da0a131"><div class="ttname"><a href="classNeurone.html#ac7746b1b83936b6e665aee632da0a131">Neurone::getJsentToPostSynapticNeurone</a></div><div class="ttdeci">double getJsentToPostSynapticNeurone() const </div><div class="ttdoc">return the eletric potential (mV) sent to postsynaptic neuron, either Je if isExitatory==true or -Ji ...</div><div class="ttdef"><b>Definition:</b> Neurone.cpp:71</div></div>
 <div class="ttc" id="classNeurone_html"><div class="ttname"><a href="classNeurone.html">Neurone</a></div><div class="ttdef"><b>Definition:</b> Neurone.hpp:11</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 5 2017 13:50:05 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 5 2017 22:01:11 for Neuron Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

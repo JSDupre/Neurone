@@ -23,8 +23,8 @@ TEST(test1Neurone,SpikeAtACorrectTime){
 	bool spike=n.update(3000);
 	EXPECT_TRUE(spike);
 	EXPECT_TRUE(n.getSpikesTimeInNumberOfTimeIncrement()[0]==924);
-	EXPECT_TRUE(n.getSpikesTimeInNumberOfTimeIncrement()[1]==1722);
-	EXPECT_TRUE(n.getSpikesTimeInNumberOfTimeIncrement()[2]==2520);
+	EXPECT_TRUE(n.getSpikesTimeInNumberOfTimeIncrement()[1]==1732);
+	EXPECT_TRUE(n.getSpikesTimeInNumberOfTimeIncrement()[2]==2540);
 }
 
 TEST(test1Neurone,receivePuttingCorrectValueAtCorrectIndix){

@@ -1,5 +1,6 @@
 var searchData=
 [
-  ['network',['Network',['../classNetwork.html',1,'Network'],['../classNetwork.html#a50ca39356b9602a77a03c1c75136715f',1,'Network::Network()']]],
-  ['neurone',['Neurone',['../classNeurone.html',1,'Neurone'],['../classNeurone.html#a32dca789543f50744339d5826e210a83',1,'Neurone::Neurone()']]]
+  ['readme',['README',['../md_README.html',1,'']]],
+  ['receive',['receive',['../classNeurone.html#abf87a70742b3662bc294d570484d1f59',1,'Neurone']]],
+  ['runsimulation',['runSimulation',['../classNetwork.html#aee37b42c486581f07111b9346919b1ad',1,'Network']]]
 ];

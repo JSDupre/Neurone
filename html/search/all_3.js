@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['runsimulation',['runSimulation',['../classNetwork.html#ab8511393231eb31d5ea30d111f74c9ab',1,'Network']]]
+  ['setconnections',['setConnections',['../classNeurone.html#a60b8bf2108296a7ae8be2f7eae29547a',1,'Neurone']]]
 ];

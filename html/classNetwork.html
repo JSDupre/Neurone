@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: Network Class Reference</title>
+<title>Neuron Network: Network Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,8 +22,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Neuron Network
    </div>
+   <div id="projectbrief">Simulate a network of 12500 neurons,as described in the Brunel&#39;s paper &#39;Dynamics of Sparsely connected networks of excitatory and inhibitory spiking neurons&#39;</div>
   </td>
  </tr>
  </tbody>
@@ -37,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,54 +94,57 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a50ca39356b9602a77a03c1c75136715f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a50ca39356b9602a77a03c1c75136715f">Network</a> (unsigned int numberOfNeurones, double exitatoryProportion, double exitatoryConnectionProbability, double inhibitoryConnectionProbability, int clock)</td></tr>
-<tr class="memdesc:a50ca39356b9602a77a03c1c75136715f"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for <a class="el" href="classNetwork.html">Network</a>  <a href="#a50ca39356b9602a77a03c1c75136715f">More...</a><br/></td></tr>
-<tr class="separator:a50ca39356b9602a77a03c1c75136715f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a021c9e1c75321f97fe10ff96bad0e1c8"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a021c9e1c75321f97fe10ff96bad0e1c8">Network</a> (unsigned int const &amp;numberOfNeurones, double const &amp;exitatoryProportion, double const &amp;exitatoryConnectionProbability, double const &amp;inhibitoryConnectionProbability, int const &amp;clock)</td></tr>
+<tr class="memdesc:a021c9e1c75321f97fe10ff96bad0e1c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">constructor for <a class="el" href="classNetwork.html">Network</a>  <a href="#a021c9e1c75321f97fe10ff96bad0e1c8">More...</a><br/></td></tr>
+<tr class="separator:a021c9e1c75321f97fe10ff96bad0e1c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a7a4e19cdb4bf0c7ecf82baa643831492"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a7a4e19cdb4bf0c7ecf82baa643831492">~Network</a> ()</td></tr>
 <tr class="memdesc:a7a4e19cdb4bf0c7ecf82baa643831492"><td class="mdescLeft">&#160;</td><td class="mdescRight">destructor for <a class="el" href="classNetwork.html">Network</a>  <a href="#a7a4e19cdb4bf0c7ecf82baa643831492">More...</a><br/></td></tr>
 <tr class="separator:a7a4e19cdb4bf0c7ecf82baa643831492"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab8511393231eb31d5ea30d111f74c9ab"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#ab8511393231eb31d5ea30d111f74c9ab">runSimulation</a> (double Tstop)</td></tr>
-<tr class="memdesc:ab8511393231eb31d5ea30d111f74c9ab"><td class="mdescLeft">&#160;</td><td class="mdescRight">run the simulation of the network during Tstop seconds according to the constants in "Constants.hpp"  <a href="#ab8511393231eb31d5ea30d111f74c9ab">More...</a><br/></td></tr>
-<tr class="separator:ab8511393231eb31d5ea30d111f74c9ab"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a37f408d5ff245c828e8fe74a4d7fdefd"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#a37f408d5ff245c828e8fe74a4d7fdefd">getSpikesVectorForNeuroneAtIndix</a> (unsigned int indix)</td></tr>
-<tr class="memdesc:a37f408d5ff245c828e8fe74a4d7fdefd"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the spike's times of a certain neuron of the network in a vector  <a href="#a37f408d5ff245c828e8fe74a4d7fdefd">More...</a><br/></td></tr>
-<tr class="separator:a37f408d5ff245c828e8fe74a4d7fdefd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aee37b42c486581f07111b9346919b1ad"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#aee37b42c486581f07111b9346919b1ad">runSimulation</a> (double const &amp;Tstop)</td></tr>
+<tr class="memdesc:aee37b42c486581f07111b9346919b1ad"><td class="mdescLeft">&#160;</td><td class="mdescRight">run the simulation of the network during Tstop seconds according to the constants in "Constants.hpp"  <a href="#aee37b42c486581f07111b9346919b1ad">More...</a><br/></td></tr>
+<tr class="separator:aee37b42c486581f07111b9346919b1ad"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aab75966da4cbca7c227f98e58a4ac3a5"><td class="memItemLeft" align="right" valign="top">std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNetwork.html#aab75966da4cbca7c227f98e58a4ac3a5">getSpikesVectorForNeuroneAtIndix</a> (unsigned int const &amp;indix) const </td></tr>
+<tr class="memdesc:aab75966da4cbca7c227f98e58a4ac3a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the spike's times of a certain neuron of the network in a vector  <a href="#aab75966da4cbca7c227f98e58a4ac3a5">More...</a><br/></td></tr>
+<tr class="separator:aab75966da4cbca7c227f98e58a4ac3a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a3dcf8b3bc4ec425ddf6c52a98ded01"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a3a3dcf8b3bc4ec425ddf6c52a98ded01"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><b>writeSpikesDataFile</b> (std::string const &amp;fileName) const </td></tr>
+<tr class="separator:a3a3dcf8b3bc4ec425ddf6c52a98ded01"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>class for a network of neurons. create all the neurons that it contain and is able to run a simulation according to the constants in "Constants.hpp" </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a50ca39356b9602a77a03c1c75136715f"></a>
+<a class="anchor" id="a021c9e1c75321f97fe10ff96bad0e1c8"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Network::Network </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">unsigned int const &amp;&#160;</td>
           <td class="paramname"><em>numberOfNeurones</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">double const &amp;&#160;</td>
           <td class="paramname"><em>exitatoryProportion</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">double const &amp;&#160;</td>
           <td class="paramname"><em>exitatoryConnectionProbability</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">double const &amp;&#160;</td>
           <td class="paramname"><em>inhibitoryConnectionProbability</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">int const &amp;&#160;</td>
           <td class="paramname"><em>clock</em>&#160;</td>
         </tr>
         <tr>
@@ -183,16 +188,16 @@ Public Member Functions</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Member Function Documentation</h2>
-<a class="anchor" id="a37f408d5ff245c828e8fe74a4d7fdefd"></a>
+<a class="anchor" id="aab75966da4cbca7c227f98e58a4ac3a5"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">std::vector&lt; int &gt; Network::getSpikesVectorForNeuroneAtIndix </td>
           <td>(</td>
-          <td class="paramtype">unsigned int&#160;</td>
+          <td class="paramtype">unsigned int const &amp;&#160;</td>
           <td class="paramname"><em>indix</em></td><td>)</td>
-          <td></td>
+          <td> const</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -207,14 +212,14 @@ Public Member Functions</h2></td></tr>
 
 </div>
 </div>
-<a class="anchor" id="ab8511393231eb31d5ea30d111f74c9ab"></a>
+<a class="anchor" id="aee37b42c486581f07111b9346919b1ad"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void Network::runSimulation </td>
           <td>(</td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">double const &amp;&#160;</td>
           <td class="paramname"><em>Tstop</em></td><td>)</td>
           <td></td>
         </tr>
@@ -238,7 +243,7 @@ Public Member Functions</h2></td></tr>
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 5 2017 13:50:05 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 5 2017 22:01:11 for Neuron Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

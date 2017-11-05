@@ -1,4 +1,3 @@
-#include <iostream>
 #include <vector>
 #include "Constants.hpp"
 #include "gtest/gtest_prod.h"
@@ -33,31 +32,37 @@ class Neurone {
 	 * @param ExternalRandomSpikesFrequencyPerTimeStep the external random spikes frequency per time step (=NuExtTimeH in default but can be set to 0 for unit testing of neuron without noise)
 	 */
 	Neurone (int const& clock,double const& Iext,bool const& isExitatory,unsigned int const& neuroneID,double const& ExternalRandomSpikesFrequencyPerTimeStep=NuExtTimeH);
+	
 	/** \brief update a neuron for a certain number of time step return true if the neuron has spiked during the update
 	 * 
 	 * @param NumberOfTimeIncrement the number of time step during wich the neuron has to be updated
 	 */
 	bool update(unsigned int const& NumberOfTimeIncrement);
+	
 	/** \brief return the membrane potential
 	 */
 	double getMembranePotential() const;
+	
 	/** \brief return the neuron's spikes' times (in number of since the beginning of the simulation) in a vector
 	 */
 	std::vector<int> getSpikesTimeInNumberOfTimeIncrement() const;
+	
 	/** \brief return the neuron's connections (ID of the post synaptic neurons)
 	 */
 	std::vector<unsigned int> getConnections() const;
+	
 	/** \brief set the neuron's connections (ID of the postsynaptic neurons)
 	 */
 	void setConnections (std::vector<unsigned int> const& connections);
-	/** \brief store a receiving spike (of strenght J) from a pre synaptic neuron 
+	
+	/** \brief store a receiving spike from a pre synaptic neuron 
 	 * it will be computed in the calculus of the membrane potential after a certain delay
+	 * 
+	 * @param clockPlusDelay the time (in number of time increment) at which the arriving spike must be computed
+	 * @param J potential of the arriving spike
 	 */
 	void receive(int const& clockPlusDelay,double const& J);
-	/** \brief return the ring buffer used to store the arriving spikes from presynaptic neurons
-	 * used in unit testing
-	 */
-	//std::vector<double> getRingBuffer() const;
+	
 	/** \brief return the eletric potential (mV) sent to postsynaptic neuron, either Je if isExitatory==true or -Ji if isExitatory==false 
 	 */
 	double getJsentToPostSynapticNeurone() const;

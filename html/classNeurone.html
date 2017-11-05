@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>My Project: Neurone Class Reference</title>
+<title>Neuron Network: Neurone Class Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,8 +22,9 @@
  <tbody>
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
-   <div id="projectname">My Project
+   <div id="projectname">Neuron Network
    </div>
+   <div id="projectbrief">Simulate a network of 12500 neurons,as described in the Brunel&#39;s paper &#39;Dynamics of Sparsely connected networks of excitatory and inhibitory spiking neurons&#39;</div>
   </td>
  </tr>
  </tbody>
@@ -37,6 +38,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow1" class="tabs">
     <ul class="tablist">
       <li><a href="index.html"><span>Main&#160;Page</span></a></li>
+      <li><a href="pages.html"><span>Related&#160;Pages</span></a></li>
       <li class="current"><a href="annotated.html"><span>Classes</span></a></li>
       <li><a href="files.html"><span>Files</span></a></li>
       <li>
@@ -69,7 +71,7 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Classes</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Pages</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -92,64 +94,72 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:a32dca789543f50744339d5826e210a83"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a32dca789543f50744339d5826e210a83">Neurone</a> (int clock, double Iext, bool isExitatory, int neuroneID)</td></tr>
-<tr class="memdesc:a32dca789543f50744339d5826e210a83"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a neuron  <a href="#a32dca789543f50744339d5826e210a83">More...</a><br/></td></tr>
-<tr class="separator:a32dca789543f50744339d5826e210a83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa6dac345fd1ab43f5aa92034c64abec8"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="aa6dac345fd1ab43f5aa92034c64abec8"></a>
-bool&#160;</td><td class="memItemRight" valign="bottom"><b>update</b> (unsigned int const &amp;NumberOfTimeIncrement)</td></tr>
+<tr class="memitem:a7908c3fab353efd2d2cf2e96f4a18255"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a7908c3fab353efd2d2cf2e96f4a18255">Neurone</a> (int const &amp;clock, double const &amp;Iext, bool const &amp;isExitatory, unsigned int const &amp;neuroneID, double const &amp;ExternalRandomSpikesFrequencyPerTimeStep=NuExtTimeH)</td></tr>
+<tr class="memdesc:a7908c3fab353efd2d2cf2e96f4a18255"><td class="mdescLeft">&#160;</td><td class="mdescRight">construct a neuron  <a href="#a7908c3fab353efd2d2cf2e96f4a18255">More...</a><br/></td></tr>
+<tr class="separator:a7908c3fab353efd2d2cf2e96f4a18255"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6dac345fd1ab43f5aa92034c64abec8"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#aa6dac345fd1ab43f5aa92034c64abec8">update</a> (unsigned int const &amp;NumberOfTimeIncrement)</td></tr>
+<tr class="memdesc:aa6dac345fd1ab43f5aa92034c64abec8"><td class="mdescLeft">&#160;</td><td class="mdescRight">update a neuron for a certain number of time step return true if the neuron has spiked during the update  <a href="#aa6dac345fd1ab43f5aa92034c64abec8">More...</a><br/></td></tr>
 <tr class="separator:aa6dac345fd1ab43f5aa92034c64abec8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47461fff747136e1569184fe5ebcd4c9"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47461fff747136e1569184fe5ebcd4c9"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getMembranePotential</b> () const </td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a47461fff747136e1569184fe5ebcd4c9">getMembranePotential</a> () const </td></tr>
+<tr class="memdesc:a47461fff747136e1569184fe5ebcd4c9"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the membrane potential <br/></td></tr>
 <tr class="separator:a47461fff747136e1569184fe5ebcd4c9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a99d7af7ba00e6ad898330d15b38832db"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a99d7af7ba00e6ad898330d15b38832db"></a>
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getSpikesTimeInNumberOfTimeIncrement</b> () const </td></tr>
+std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a99d7af7ba00e6ad898330d15b38832db">getSpikesTimeInNumberOfTimeIncrement</a> () const </td></tr>
+<tr class="memdesc:a99d7af7ba00e6ad898330d15b38832db"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the neuron's spikes' times (in number of since the beginning of the simulation) in a vector <br/></td></tr>
 <tr class="separator:a99d7af7ba00e6ad898330d15b38832db"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a429cd32d2eccf21ef27ee628cb5c1e66"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a429cd32d2eccf21ef27ee628cb5c1e66"></a>
-std::vector&lt; int &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getConnections</b> () const </td></tr>
-<tr class="separator:a429cd32d2eccf21ef27ee628cb5c1e66"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a47e61e44ec11f4f3429f8d4c014c9a91"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a47e61e44ec11f4f3429f8d4c014c9a91"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setConnections</b> (std::vector&lt; int &gt; const &amp;connections)</td></tr>
-<tr class="separator:a47e61e44ec11f4f3429f8d4c014c9a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af514ca0ec50cb282c8431ff17832123c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="af514ca0ec50cb282c8431ff17832123c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>receive</b> (int clockPlusDelay, double J)</td></tr>
-<tr class="separator:af514ca0ec50cb282c8431ff17832123c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2e7773f8f6fef5019e22851fbfada0fb"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a2e7773f8f6fef5019e22851fbfada0fb"></a>
-std::vector&lt; double &gt;&#160;</td><td class="memItemRight" valign="bottom"><b>getRingBuffer</b> () const </td></tr>
-<tr class="separator:a2e7773f8f6fef5019e22851fbfada0fb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ababb4cebec2f4437587ec8576e1b9f8c"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ababb4cebec2f4437587ec8576e1b9f8c"></a>
+std::vector&lt; unsigned int &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#ababb4cebec2f4437587ec8576e1b9f8c">getConnections</a> () const </td></tr>
+<tr class="memdesc:ababb4cebec2f4437587ec8576e1b9f8c"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the neuron's connections (ID of the post synaptic neurons) <br/></td></tr>
+<tr class="separator:ababb4cebec2f4437587ec8576e1b9f8c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a60b8bf2108296a7ae8be2f7eae29547a"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="a60b8bf2108296a7ae8be2f7eae29547a"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#a60b8bf2108296a7ae8be2f7eae29547a">setConnections</a> (std::vector&lt; unsigned int &gt; const &amp;connections)</td></tr>
+<tr class="memdesc:a60b8bf2108296a7ae8be2f7eae29547a"><td class="mdescLeft">&#160;</td><td class="mdescRight">set the neuron's connections (ID of the postsynaptic neurons) <br/></td></tr>
+<tr class="separator:a60b8bf2108296a7ae8be2f7eae29547a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abf87a70742b3662bc294d570484d1f59"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#abf87a70742b3662bc294d570484d1f59">receive</a> (int const &amp;clockPlusDelay, double const &amp;J)</td></tr>
+<tr class="memdesc:abf87a70742b3662bc294d570484d1f59"><td class="mdescLeft">&#160;</td><td class="mdescRight">store a receiving spike from a pre synaptic neuron it will be computed in the calculus of the membrane potential after a certain delay  <a href="#abf87a70742b3662bc294d570484d1f59">More...</a><br/></td></tr>
+<tr class="separator:abf87a70742b3662bc294d570484d1f59"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac7746b1b83936b6e665aee632da0a131"><td class="memItemLeft" align="right" valign="top"><a class="anchor" id="ac7746b1b83936b6e665aee632da0a131"></a>
-double&#160;</td><td class="memItemRight" valign="bottom"><b>getJsentToPostSynapticNeurone</b> () const </td></tr>
+double&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classNeurone.html#ac7746b1b83936b6e665aee632da0a131">getJsentToPostSynapticNeurone</a> () const </td></tr>
+<tr class="memdesc:ac7746b1b83936b6e665aee632da0a131"><td class="mdescLeft">&#160;</td><td class="mdescRight">return the eletric potential (mV) sent to postsynaptic neuron, either Je if isExitatory==true or -Ji if isExitatory==false <br/></td></tr>
 <tr class="separator:ac7746b1b83936b6e665aee632da0a131"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>class for a neuron </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="a32dca789543f50744339d5826e210a83"></a>
+<a class="anchor" id="a7908c3fab353efd2d2cf2e96f4a18255"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">Neurone::Neurone </td>
           <td>(</td>
-          <td class="paramtype">int&#160;</td>
+          <td class="paramtype">int const &amp;&#160;</td>
           <td class="paramname"><em>clock</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">double&#160;</td>
+          <td class="paramtype">double const &amp;&#160;</td>
           <td class="paramname"><em>Iext</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">bool&#160;</td>
+          <td class="paramtype">bool const &amp;&#160;</td>
           <td class="paramname"><em>isExitatory</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int&#160;</td>
-          <td class="paramname"><em>neuroneID</em>&#160;</td>
+          <td class="paramtype">unsigned int const &amp;&#160;</td>
+          <td class="paramname"><em>neuroneID</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double const &amp;&#160;</td>
+          <td class="paramname"><em>ExternalRandomSpikesFrequencyPerTimeStep</em> = <code>NuExtTimeH</code>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -166,6 +176,67 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getJsentToPostSynap
     <tr><td class="paramname">Iext</td><td>intensity comming from the outside of the brain </td></tr>
     <tr><td class="paramname">isExitatory</td><td>boolean true if the neuron is excitatory false if inhibitory </td></tr>
     <tr><td class="paramname">neuroneID</td><td>the neuron ID </td></tr>
+    <tr><td class="paramname">ExternalRandomSpikesFrequencyPerTimeStep</td><td>the external random spikes frequency per time step (=NuExtTimeH in default but can be set to 0 for unit testing of neuron without noise) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a class="anchor" id="abf87a70742b3662bc294d570484d1f59"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Neurone::receive </td>
+          <td>(</td>
+          <td class="paramtype">int const &amp;&#160;</td>
+          <td class="paramname"><em>clockPlusDelay</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">double const &amp;&#160;</td>
+          <td class="paramname"><em>J</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>store a receiving spike from a pre synaptic neuron it will be computed in the calculus of the membrane potential after a certain delay </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">clockPlusDelay</td><td>the time (in number of time increment) at which the arriving spike must be computed </td></tr>
+    <tr><td class="paramname">J</td><td>potential of the arriving spike </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a class="anchor" id="aa6dac345fd1ab43f5aa92034c64abec8"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool Neurone::update </td>
+          <td>(</td>
+          <td class="paramtype">unsigned int const &amp;&#160;</td>
+          <td class="paramname"><em>NumberOfTimeIncrement</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>update a neuron for a certain number of time step return true if the neuron has spiked during the update </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">NumberOfTimeIncrement</td><td>the number of time step during wich the neuron has to be updated </td></tr>
   </table>
   </dd>
 </dl>
@@ -179,7 +250,7 @@ double&#160;</td><td class="memItemRight" valign="bottom"><b>getJsentToPostSynap
 </div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>
-Generated on Sun Nov 5 2017 13:50:05 for My Project by &#160;<a href="http://www.doxygen.org/index.html">
+Generated on Sun Nov 5 2017 22:01:11 for Neuron Network by &#160;<a href="http://www.doxygen.org/index.html">
 <img class="footer" src="doxygen.png" alt="doxygen"/>
 </a> 1.8.6
 </small></address>

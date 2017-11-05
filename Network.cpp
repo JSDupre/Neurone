@@ -1,9 +1,10 @@
+#include <iostream>
 #include "Network.hpp"
 #include <random>
 #include <string>
 #include <fstream>
 
-//#define NDEBUG
+#define NDEBUG
 #include <cassert>
 
 using namespace std;

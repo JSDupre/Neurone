@@ -11,10 +11,10 @@
 	const int NumberOfExitatoryNeurone(10000);
 	const int NumberOfInhibitoryNeurone(2500);
 	const double ProbabilityOfConnection(0.1);
-	const double g(4.5);//  Ji/Je ,see paper
+	const double g(3);//  Ji/Je ,see paper
 	const double D(1.5); //delay (ms)
-	const double Je(0.1); //connection strenght, constant for each connection for simplification
-	const double Eta(0.9);
+	const double Je(0.1); //connection strenght, the same for each exitatory connection for simplification
+	const double Eta(2); //Nuext/NuThr
 	
 	//for graph procuction
 	const int numberOfNeuronsToRecord(100);
