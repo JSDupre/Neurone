@@ -22,19 +22,19 @@ TEST(test1Neurone,SpikeAtACorrectTime){
 	cout<<"neurone with Iext=1.01 and no noise"<<endl;;
 	bool spike=n.update(3000);
 	EXPECT_TRUE(spike);
-	EXPECT_TRUE(n.getSpikesTimeInNumberOfTimeIncrement()[0]==924);
-	EXPECT_TRUE(n.getSpikesTimeInNumberOfTimeIncrement()[1]==1732);
-	EXPECT_TRUE(n.getSpikesTimeInNumberOfTimeIncrement()[2]==2540);
+	EXPECT_EQ(n.getSpikesTimeInNumberOfTimeIncrement()[0],924);
+	EXPECT_EQ(n.getSpikesTimeInNumberOfTimeIncrement()[1],1732);
+	EXPECT_EQ(n.getSpikesTimeInNumberOfTimeIncrement()[2],2540);
 }
 
 TEST(test1Neurone,receivePuttingCorrectValueAtCorrectIndix){
 	Neurone n(0,0.0,true,1,0.0);
 	n.receive(15,Je);
 	n.receive(15,Je);
-	EXPECT_TRUE(n.spikeRingBuffer_[15]==2*Je);
-	n.update(16);
+	EXPECT_EQ(n.spikeRingBuffer_[14],2*Je);
+	n.update(15);
 	EXPECT_TRUE(n.getMembranePotential()==2*Je);
-	n.update(16);
+	n.update(15);
 	EXPECT_TRUE(n.spikeRingBuffer_[15]==0.0);
 	EXPECT_TRUE(n.getMembranePotential()<2*Je);//normal decay : the buffer has been reset correctly
 }

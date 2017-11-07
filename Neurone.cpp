@@ -4,7 +4,7 @@
 #include <random>
 using namespace std;
 
-#define NDEBUG
+//#define NDEBUG
 #include <cassert>
 
 	Neurone::Neurone (int const& clock,double const& Iext,bool const& isExitatory,unsigned int const& neuroneID,double const& ExternalRandomSpikesFrequencyPerTimeStep)
@@ -33,7 +33,7 @@ using namespace std;
 				{
 					static random_device rd;
 					static mt19937 gen(rd());
-					poisson_distribution<> distribution (ExternalRandomSpikesFrequencyPerTimeStep_);
+					static poisson_distribution<> distribution (ExternalRandomSpikesFrequencyPerTimeStep_);
 					int numberOfExternalSpike(distribution(gen));
 					assert(numberOfExternalSpike>=0);
 					double externalRandomPart(Je*(double)numberOfExternalSpike);
@@ -65,7 +65,7 @@ using namespace std;
 	}
 	void Neurone::receive(int const& clockPlusDelay,double const& J){
 		assert(clockPlusDelay>localClock_);
-		size_t storageIndex(clockPlusDelay % spikeRingBuffer_.size());
+		size_t storageIndex((clockPlusDelay-1) % spikeRingBuffer_.size());
 		spikeRingBuffer_[storageIndex]+=J;
 	}
 	double Neurone::getJsentToPostSynapticNeurone() const{

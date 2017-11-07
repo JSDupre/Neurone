@@ -19,6 +19,7 @@ int main() {
 		cout<<"simulation time? (ms)"<<endl;
 		double Tstop(AskUserADouble());
 		int clock(0);
+		
 		Network network (TOTAL_NUMBER_OF_NEURONES,EXITATORY_PROPORTION,ProbabilityOfConnection,ProbabilityOfConnection,clock);
 		cerr<<"build network finished"<<endl;
 		network.runSimulation(Tstop);
@@ -26,7 +27,6 @@ int main() {
 			//writing simulation result for latter analisys
 		network.writeSpikesDataFile("spikes.gdf");
 		cerr<<"writing data file finished"<<endl;
-		
 		return 0;
 	}
 	
